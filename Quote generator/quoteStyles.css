@@ -48,11 +48,34 @@ button#gen-btn {
     cursor: pointer;
 }
 button#gen-btn:hover {
-    background-image:repeating-conic-gradient(rgb(16, 146, 111), rgb(97, 17, 106), rgba(62, 199, 135, 0.522), rgba(133, 180, 32, 0.516)) ;
+    background-image:repeating-conic-gradient(rgb(16, 146, 111), rgb(97, 17, 106), rgba(62, 199, 135, 0.522), rgba(133, 180, 32, 0.516));
+    color: color-mix(in srgb-linear, red 45%, yellow 12%);
+    animation-name: animationForGenerateButton;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
 }
 p::selection {
     background-color: rgb(31, 127, 127);
 }
 q::selection {
     background-color: rgb(31, 127, 127);
+}
+
+@keyframes animationForGenerateButton {
+    from {
+        width: 25vw;
+        height: 6vh;
+    }
+    15% {transform: scale(1, 2); transform: rotate(10deg);}
+    25% {transform: scale(2, 3); transform: rotate(20deg);}
+    35% {transform: scale(3, 4); transform: rotate(30deg);}
+    45% {transform: scale(4, 5); transform: rotate(40deg);}
+    55% {transform: scale(5, 6); transform: rotate(50deg);}
+    65% {transform: scale(6, 7); transform: rotate(60deg);}
+    75% {transform: scale(7, 8); transform: rotate(70deg);}
+    85% {transform: scale(8, 9); transform: rotate(80deg);}
+    to {
+        width: 50vw;
+        height: 8vh;
+    }
 }

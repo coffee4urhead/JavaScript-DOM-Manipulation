@@ -1,0 +1,7 @@
+body {
+    background: url('pics/Library\ image.jpg.crdownload') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

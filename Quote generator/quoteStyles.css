@@ -5,3 +5,16 @@ body {
     align-items: center;
     justify-content: center;
 }
+div.head-section {
+    background-color: black;
+    color: whitesmoke;
+    border: 3px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px white, 2px 3px 6px gray, 3px 4px 3px ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 17rem;
+    font-size: 23px;
+}

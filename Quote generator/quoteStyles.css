@@ -32,3 +32,19 @@ div.wrapper {
     height: 60vh;
     border-radius: 10px;
 }
+button#gen-btn {
+    box-shadow: 3px 3px 5px rgb(163, 40, 40), 2px 2px 6px rgb(128, 63, 63), 4px 4px 3px rgb(161, 40, 26);
+    height: 6vh;
+    width: 25vw;
+    background-image: linear-gradient(to bottom, red, rgb(153, 48, 19), rgb(187, 60, 17), rgb(216, 98, 24));
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: 1000;
+    border: 2px solid green;
+    outline-width: 10px;
+    outline-color: rgb(255, 3, 3);
+    outline-offset: 10px;
+}
+button#gen-btn:hover {
+    background-image:repeating-conic-gradient(rgb(16, 146, 111), rgb(97, 17, 106), rgba(62, 199, 135, 0.522), rgba(133, 180, 32, 0.516)) ;
+}

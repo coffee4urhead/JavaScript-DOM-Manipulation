@@ -83,18 +83,6 @@ q::selection {
 @media screen and (max-width: 769px) {
     div.head-section {
         font-size: 7px;
-    }
-    
-    button#gen-btn {
-        height: 6vh;
-        width: 20vw;
-        font-size: 12px;
-    }
-}
-@media screen and (max-width: 426px) {
-    div.head-section {
-        font-size: 6px;
-        height: 6vh;
         width: 40vw;
     }
     
@@ -108,9 +96,26 @@ q::selection {
         font-weight: 700;
     }
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 426px) {
     div.head-section {
         font-size: 5px;
+        height: 6vh;
+        width: 40vw;
+    }
+    
+    button#gen-btn {
+        height: 6vh;
+        width: 40vw;
+        font-size: 7px;
+    }
+    body {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+@media screen and (max-width: 376px) {
+    div.head-section {
+        font-size: 4px;
         height: 6vh;
         width: 40vw;
     }

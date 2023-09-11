@@ -12,6 +12,7 @@ These are my web pages made with html,css and javaScript where i will be trying 
  ---[FreeCodeCamp.org is the place where i inspired all of the upcoming projects]---
  ---[I would also like to mention Kevin Powell and Web Dev Simplified for making css more easy to understand and practise]---
  ---[I also found aspiration in SoftUni academy where i am currently studying and gathering all of that knowledge!]---
+ ---[I would also like to thank shopify for groupinf more than 500+ selections of quotes that i chose from!]---
 
  ### What i would like to focus on from then on ###
 

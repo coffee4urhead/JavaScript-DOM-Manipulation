@@ -8,18 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
-    <script src="quoteJs.js"></script>
     <title>Quote Generator</title>
 </head>
 
 <body>
-
+    
     <div class="wrapper">
         <div class="head-section"><h1>JavaScript quote generator!</h1></div>
-        <p><q>Some quote here snc ono; oin o oinono no no non iun n n npin iubuy buy uyuvuyutvuivi u</q></p>
-        <p>Author of the quote</p>
-        <button id="gen-btn">Generate new quote fron different author</button>
+        <p><q id="quote-txt">Some quote here snc ono; oin o oinono no no non iun n n npin iubuy buy uyuvuyutvuivi u</q></p>
+        <p id="quote-author">Author of the quote</p>
+        <button onclick="generateNewQuote()" id="gen-btn">Generate new quote from different author</button>
     </div>
+    <script src="quoteJs.js"></script>
 </body>
 
 </html>

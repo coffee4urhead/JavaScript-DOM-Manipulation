@@ -10,8 +10,9 @@ const myInputSearchButton = document.querySelector('.search-btn');
 async function updateInfo(city) {
     let url = "https://api.openweathermap.org/data/2.5/weather?q=";
     let apiKey = "dce6dc38844a3cca159d69eee2f287c9";
-
-    let response = await fetch(url + city + `&appid=${apiKey}`);
+    let metricSystemApplied = "&units=metric";
+    
+    let response = await fetch(url + city + `&appid=${apiKey}` + metricSystemApplied);
     let data = await response.json();
 
     console.log(data);

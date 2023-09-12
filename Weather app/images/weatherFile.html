@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weatherFileStyles.css" />
+    <title>Weather online app</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="search-section">
+            <input type="text" class="inp-text" placeholder="Enter a valid city name here..." />
+            <button class="search-btn"><img src="search.png" /></button>
+        </div>
+        <img class="img-src" src="clear.png" />
+        <p class="deg">23<sup>o</sup>C</p>
+        <p class="city">New York</p>
+        <div class="info-section-wrap">
+            <div class="humidity-section">
+                <img src="humidity.png" class="hum-picture" />
+                <div class="hum-cont">
+                    <p style="margin-bottom: 2px;">45%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="wind-section">
+                <img src="wind.png" class="wind-picture" />
+                <div class="wind-cont">
+                    <p style="margin-bottom: 2px;">45 km/h</p>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="weatherJs.js"></script>
+</body>
+
+</html>

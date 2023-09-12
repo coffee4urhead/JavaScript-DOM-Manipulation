@@ -23,7 +23,7 @@ These are my web pages made with html,css and javaScript where i will be trying 
 
  ---[Achieve a high level of manipulation on the HTML elements as well as providing some very impressive info about quotes that might change the way you think!]---
 
-### Project #1 ("Weather forecast app through the open weather API") ###
+### Project #2 ("Weather forecast app through the open weather API") ###
  
  ### Main target of the project ###
  ---[The main project target is to maintain a good level of javaScript and css in it]---

@@ -27,7 +27,7 @@ async function updateInfo(city) {
 
     //Here can be possible errors with the ===
     // possible errors with the file paths
-    
+
     if(typeOfWeather === "Clouds"){
         imageOfWeather.srx = "clouds.png";
     }else if(typeOfWeather === "Clear"){
@@ -40,6 +40,8 @@ async function updateInfo(city) {
         imageOfWeather.src = "mist.png";
     }else if(typeOfWeather === "Snow"){
         imageOfWeather.src = "snow.png";
+    }else {
+        alert("No weather icon available for the usage of the API!");
     }
 }
 

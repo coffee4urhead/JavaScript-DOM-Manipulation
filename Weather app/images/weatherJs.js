@@ -23,7 +23,24 @@ async function updateInfo(city) {
 
     // Update the img src according to the weather temperature
 
+    let typeOfWeather = data.weather[0].main;
+
+    //Here can be possible errors with the ===
+    // possible errors with the file paths
     
+    if(typeOfWeather === "Clouds"){
+        imageOfWeather.srx = "clouds.png";
+    }else if(typeOfWeather === "Clear"){
+        imageOfWeather.src = "clear.png";
+    }else if(typeOfWeather === "Rain"){
+        imageOfWeather.src = "rain.png";
+    }else if(typeOfWeather === "Drizzle"){
+        imageOfWeather.src = "drizzle.png";
+    }else if(typeOfWeather === "Mist"){
+        imageOfWeather.src = "mist.png";
+    }else if(typeOfWeather === "Snow"){
+        imageOfWeather.src = "snow.png";
+    }
 }
 
 myInputSearchButton.addEventListener('click', () => {

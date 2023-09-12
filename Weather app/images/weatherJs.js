@@ -1,8 +1,8 @@
-const imageOfWeather = document.querySelector('.img-src');
-const degreesText = document.querySelector('.deg');
-const cityText = document.querySelector('.city');
-const humidityPercentage = document.querySelector('.hum-percentage');
-const windSpeed = document.querySelector('.wind-speed');
+let imageOfWeather = document.querySelector('.img-src');
+let degreesText = document.querySelector('.deg');
+let cityText = document.querySelector('.city');
+let humidityPercentage = document.querySelector('.hum-percentage');
+let windSpeed = document.querySelector('.wind-speed');
 
 const myInputTextField = document.querySelector('.inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
@@ -15,6 +15,15 @@ async function updateInfo(city) {
     let data = await response.json();
 
     console.log(data);
+
+    degreesText.innerText = Math.round(data.main.temp) + "deg";
+    cityText.innerText = data.name;
+    humidityPercentage.innerText = data.main.humidity + "%";
+    windSpeed.innerText = data.wind.speed + "km/h";
+
+    // Update the img src according to the weather temperature
+
+    
 }
 
 myInputSearchButton.addEventListener('click', () => {

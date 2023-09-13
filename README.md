@@ -46,3 +46,9 @@ These are my web pages made with html,css and javaScript where i will be trying 
  ### Main goal of the project ###
 
  ---[Achieve a high level of manipulation on the HTML elements as well as providing some API usage along with practisigng the async await functions in JavaScript]---
+
+ ### Project #3 ("Daily Tasks project") ###
+ 
+ ### Main target of the project ###
+ ---[The main project target is to maintain a good level of javaScript and css in it]---
+ ---[Focuses mainly on the functionality of the scripts i used within the JavaScript file]---

@@ -66,3 +66,7 @@ These are my web pages made with html,css and javaScript where i will be trying 
  ---[I would also like to add in a framework to my tech stack and im thinking of goind with framework for css like: 
     SASS, bootstrap or tailwind for more styling and capabilities in my projects
  ]---
+
+ ### Main goal of the project ###
+
+ ---[The main goal of the project is being able to load data from the browser and not changing the tasks typed whenever the page is refreshed]---

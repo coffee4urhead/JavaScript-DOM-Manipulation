@@ -58,3 +58,11 @@ These are my web pages made with html,css and javaScript where i will be trying 
  ---[FreeCodeCamp.org is the place where i inspired all of the upcoming projects]---
  ---[I would also like to mention Kevin Powell and Web Dev Simplified for making css more easy to understand and practise]---
  ---[I also found aspiration in SoftUni academy where i am currently studying and gathering all of that knowledge!]---
+
+ ### What i would like to focus on from then on ###
+
+ ---[I would like to focus on my JavaScript DOM manipulation techniques and abilities from very now and then]---
+ ---[I would like to also study the JavaScript cookies and AJAX for more scaleable projects ahead in the future]---
+ ---[I would also like to add in a framework to my tech stack and im thinking of goind with framework for css like: 
+    SASS, bootstrap or tailwind for more styling and capabilities in my projects
+ ]---

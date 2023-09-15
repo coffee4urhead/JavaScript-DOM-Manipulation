@@ -3,8 +3,9 @@ let degreesText = document.querySelector('.deg');
 let cityText = document.querySelector('.city');
 let humidityPercentage = document.querySelector('.hum-percentage');
 let windSpeed = document.querySelector('.wind-speed');
+let feelsLikeTemperatureParagraph = document.querySelector('.feels-like');
 
-const myInputTextField = document.querySelector('.inp-text');
+const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
 async function updateInfo(city) {
@@ -16,7 +17,9 @@ async function updateInfo(city) {
     let data = await response.json();
 
     console.log(data);
+    let feelsLikeTemp = data.main.feels_like;
 
+    feelsLikeTemperatureParagraph.innerText = `Feels like: ${Math.round(feelsLikeTemp)} degrees`;
     degreesText.innerText = Math.round(data.main.temp) + "deg";
     cityText.innerText = data.name;
     humidityPercentage.innerText = data.main.humidity + "%";
@@ -25,7 +28,6 @@ async function updateInfo(city) {
     // Update the img src according to the weather temperature
 
     let typeOfWeather = data.weather[0].main;
-
     //Here can be possible errors with the ===
     // possible errors with the file paths
 

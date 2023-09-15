@@ -123,24 +123,55 @@ div.info-section-wrap {
     margin-top: 50px;
 }
 
+/*Laptop L*/
 @media screen and (min-width: 1440px) { 
     div.info-section-wrap {
         margin-top: 80px;
     }
-
+    
     img.img-src {
         display: block;
         object-position: center;
         width: 13vw;
         height: 17vh; 
     }
-
+    
     div.search-section {
         margin-top: 20px;
     }
-
+    
     input#inp-text {
         width: 300px;
         height: 50px;
     }
+    
+    button.search-btn {
+        height: 58px;
+        width: 65px;
+    }
 }
+
+/*Laptop*/
+@media screen and (min-width: 1024px) {
+    
+    div.wrapper {
+        width: 55vw;
+        height: 75vh;
+    }
+    div.search-section {
+        margin-top: 20px;
+    }
+    
+    input#inp-text {
+        width: 300px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    button.search-btn {
+        height: 58px;
+        width: 58px;
+    }
+}
+/*Tablet*/

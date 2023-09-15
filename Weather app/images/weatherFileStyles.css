@@ -124,7 +124,7 @@ div.info-section-wrap {
 }
 
 /*Laptop L*/
-@media screen and (min-width: 1440px) { 
+@media screen and (max-width: 1440px) { 
     div.info-section-wrap {
         margin-top: 80px;
     }
@@ -152,7 +152,7 @@ div.info-section-wrap {
 }
 
 /*Laptop*/
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
     
     div.wrapper {
         width: 45vw;
@@ -175,7 +175,7 @@ div.info-section-wrap {
     }
 }
 /*Tablet*/
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     
     div.wrapper {
         width: 65vw;
@@ -205,7 +205,7 @@ div.info-section-wrap {
 }
 /*Mobile L*/
 
-@media screen and (min-width: 425px) {
+@media screen and (max-width: 425px) {
     
     div.wrapper {
         width: 75vw;
@@ -271,7 +271,7 @@ div.info-section-wrap {
 }
 /*Mobile M*/
 
-@media screen and (min-width: 325px) {
+@media screen and (max-width: 325px) {
     div.info-section-wrap {
         width: 10px;
     }

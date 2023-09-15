@@ -8,15 +8,31 @@ let feelsLikeTemperatureParagraph = document.querySelector('.feels-like');
 const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
-async function updateInfo(city) {
+async function updateInfo(city = null) {
     let url = "https://api.openweathermap.org/data/2.5/weather?q=";
     let apiKey = "dce6dc38844a3cca159d69eee2f287c9";
     let metricSystemApplied = "&units=metric";
     
+    if ( myInputTextField.value.length === 0 ) {
+        alert("You didnt enter a city name!");
+        return;
+    }
+    else {
+        let regexForSymbolCheck = /[./><;:'@[{}\]\#\~\+\=\_\-\¬\`\!\"\£\$\%\^\&\*0-9]+/gm;
+
+        if ( regexForSymbolCheck.test(city) ) {
+            alert("The city name cannot contain symbols nor numbers");
+            return;
+        }
+    }
+
     let response = await fetch(url + city + `&appid=${apiKey}` + metricSystemApplied);
     let data = await response.json();
 
-    console.log(data);
+    if(data.cod === "404" || data.cod === "400"){
+        alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
+        return;
+    }
     let feelsLikeTemp = data.main.feels_like;
 
     feelsLikeTemperatureParagraph.innerText = `Feels like: ${Math.round(feelsLikeTemp)} degrees`;
@@ -25,26 +41,22 @@ async function updateInfo(city) {
     humidityPercentage.innerText = data.main.humidity + "%";
     windSpeed.innerText = data.wind.speed + "km/h";
 
-    // Update the img src according to the weather temperature
-
     let typeOfWeather = data.weather[0].main;
-    //Here can be possible errors with the ===
-    // possible errors with the file paths
 
-    if(typeOfWeather === "Clouds"){
+    if( typeOfWeather === "Clouds" ){
         imageOfWeather.srx = "clouds.png";
-    }else if(typeOfWeather === "Clear"){
+    }else if( typeOfWeather === "Clear" ) {
         imageOfWeather.src = "clear.png";
-    }else if(typeOfWeather === "Rain"){
+    }else if ( typeOfWeather === "Rain" ) {
         imageOfWeather.src = "rain.png";
-    }else if(typeOfWeather === "Drizzle"){
+    }else if ( typeOfWeather === "Drizzle" ) {
         imageOfWeather.src = "drizzle.png";
-    }else if(typeOfWeather === "Mist"){
+    }else if ( typeOfWeather === "Mist" ) {
         imageOfWeather.src = "mist.png";
-    }else if(typeOfWeather === "Snow"){
+    }else if ( typeOfWeather === "Snow" ) {
         imageOfWeather.src = "snow.png";
-    }else {
-        alert("No weather icon available for the usage of the API!");
+    } else {
+        alert( "No weather icon available for the usage of the API!" );
     }
 }
 

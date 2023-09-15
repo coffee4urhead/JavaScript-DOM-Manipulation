@@ -155,7 +155,7 @@ div.info-section-wrap {
 @media screen and (min-width: 1024px) {
     
     div.wrapper {
-        width: 55vw;
+        width: 45vw;
         height: 75vh;
     }
     div.search-section {
@@ -207,4 +207,81 @@ div.info-section-wrap {
 
 @media screen and (min-width: 425px) {
     
+    div.wrapper {
+        width: 75vw;
+        height: 95vh;
+    }
+    
+    div.info-section-wrap {
+        margin-top: 85px;
+        margin-inline: 40px;
+    }
+    
+    div.wind-section {
+        right: 1000px;
+        margin-right: 140px;
+    }
+    
+    div.humidity-section {
+        left: 10px;
+    }
+    
+    div.hum-cont {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 3;
+        font-size: 20px;
+        column-gap: 0;
+        row-gap: 0;
+        margin-right: 170px;
+    }
+
+    img.hum-picture {
+        width: 40px;
+    }
+
+    img.wind-picture {
+        width: 40px;
+    }
+
+    div.wind-section {
+        margin-right: 20px;
+    }
+
+    input#inp-text {
+        width: 150px;
+        height: 50px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+    
+    button.search-btn {
+        height: 56px;
+        width: 58px;
+        margin-left: 5px;
+    }
+    button.search-btn img {
+        height: 36px;
+        width: 38px;
+    }
+    
+    div.search-section {
+        margin-top: 10px;
+    }
+}
+/*Mobile M*/
+
+@media screen and (min-width: 325px) {
+    div.info-section-wrap {
+        width: 10px;
+    }
+
+    div.wrapper {
+        width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    * {
+        font-size: 10px;
+    }
 }

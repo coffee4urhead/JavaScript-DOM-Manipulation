@@ -235,19 +235,19 @@ div.info-section-wrap {
         row-gap: 0;
         margin-right: 170px;
     }
-
+    
     img.hum-picture {
         width: 40px;
     }
-
+    
     img.wind-picture {
         width: 40px;
     }
-
+    
     div.wind-section {
         margin-right: 20px;
     }
-
+    
     input#inp-text {
         width: 150px;
         height: 50px;
@@ -275,13 +275,88 @@ div.info-section-wrap {
     div.info-section-wrap {
         width: 10px;
     }
-
+    
     div.wrapper {
         width: 200px;
         margin-left: 10px;
         margin-right: 10px;
+        height: 80vh;
     }
     * {
         font-size: 10px;
+    }
+    
+    p.deg {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    p.feels-like {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    p.city {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        padding-top: 0;
+        margin-top: 2px;
+    }
+    
+    img.wind-picture {
+        width: 40px;
+        height: 30px;
+    }
+    
+    div.wind-section {
+        margin-right: 100px;
+    }
+    
+    div.info-section-wrap {
+        width: 10px;
+    }
+    
+    input#inp-text {
+        width: 100px;
+        height: 35px;
+        font-size: 7px;
+        font-weight: 600;
+    }
+    
+    button.search-btn {
+        height: 45px;
+        width: 58px;
+        margin-left: 5px;
+    }
+    button.search-btn img {
+        height: 26px;
+        width: 28px;
+    }
+    
+    img.img-src {
+        width: 100px;
+    }
+    
+    div.wind-section {
+        position: absolute;
+        left: 170px;
+        margin-right: 600px;
+        margin-left: -20px;
+        margin-top: -50px;
+    }
+    
+    div.humidity-section {
+        position: absolute;
+        margin-right: -10px;
+        margin-left: -40px;
+        margin-bottom: 50px;
+    }
+
+    img.hum-picture {
+        height: 40px;
+        width: 20px;
     }
 }

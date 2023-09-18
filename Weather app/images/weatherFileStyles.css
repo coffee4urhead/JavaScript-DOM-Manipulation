@@ -155,8 +155,8 @@ div.info-section-wrap {
 @media screen and (max-width: 1024px) {
     
     div.wrapper {
-        width: 45vw;
-        height: 75vh;
+        width: 50vw;
+        height: 77vh;
     }
     div.search-section {
         margin-top: 20px;

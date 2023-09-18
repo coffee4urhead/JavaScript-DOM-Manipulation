@@ -15,6 +15,16 @@ div.container {
     right: 50%;
     left: 50%;
 }
+div.task-container {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 50px;
+    width: 30vw;
+    top: 50%;
+    margin-top: 30px;
+}
 input#inp-type-txt {
     height: 4vh;
     width: 20vw;
@@ -39,18 +49,28 @@ button#add-task-btn {
     height: 5vh;
     width: 8vw;
 }
+p.task-txt {
+    display: inline-block;
+}
+button#add-task-btn:hover {
+    background-color: rgb(233, 103, 81);
+    color: black;
+    font-weight: 300;
+    font-size: medium;
+}
+input#inp-type-txt:hover {
+    cursor: pointer;
+}
 input.check-box-inp {
     width: 2rem;
     height: 2rem;
-    border-radius: 12px;
-    position: static;
-    display: inline-block;
-    margin-top: 150px;
-    top: 200%;
-    right: 600%;
-    background-color: red;
-    z-index: 0;
+    border: none;
+    border-radius: 100%;
 }
-p.task-txt {
-    display: inline-block;
+button.del-task-btn {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 100%;
+    margin-left: 10px;
 }

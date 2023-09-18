@@ -1,13 +1,10 @@
 body {
-    background-image: linear-gradient(to bottom right, red, green, blue, purple, yellow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: linear-gradient(to bottom right, rgb(196, 137, 194), rgb(128, 43, 0), blue, purple, yellow);
 }
 div.container {
     background-color: white;
     width: 30vw;
-    height: 20vh;
+    height: 50vh;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -17,7 +14,6 @@ div.container {
     top: 50%;
     right: 50%;
     left: 50%;
-
 }
 input#inp-type-txt {
     height: 4vh;
@@ -38,8 +34,23 @@ button#add-task-btn {
     font-weight: 500;
     text-align: center;
     border-radius: 12px;
-    position: relative;
-    left: 20%;
-    height: 4vh;
+    position: fixed;
+    left: 58%;
+    height: 5vh;
     width: 8vw;
+}
+input.check-box-inp {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 12px;
+    position: static;
+    display: inline-block;
+    margin-top: 150px;
+    top: 200%;
+    right: 600%;
+    background-color: red;
+    z-index: 0;
+}
+p.task-txt {
+    display: inline-block;
 }

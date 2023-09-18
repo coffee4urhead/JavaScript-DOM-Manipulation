@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dailyTaskStyles.css"/>
+    <link rel="stylesheet" href="dailyTaskStyles.css" />
     <title>Daily Tasks project</title>
 </head>
+
 <body>
     <div class="container">
-        <input type="text"  id="inp-type-txt" name="txt-inp" value="Insert task to do" placeholder="Insert task to do">
+        <input type="text" id="inp-type-txt" name="txt-inp" placeholder="Insert task to do"/>
         <button id="add-task-btn">Add Task!</button>
+        <div class="task-container">
+            <input type="checkbox" class="check-box-inp"/>
+            <p class="task-txt">Some sample text here</p>
+        </div>
     </div>
     <script src="dailyTasksScript.js"></script>
     <noscript>The script isnt properly working!</noscript>
 </body>
+
 </html>

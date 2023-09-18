@@ -19,3 +19,27 @@ div.container {
     left: 50%;
 
 }
+input#inp-type-txt {
+    height: 4vh;
+    width: 20vw;
+    background-color: rgb(177, 163, 163);
+    border-radius: 12px;
+    text-align: left;
+    color: rgb(42, 39, 39);
+    font-size: larger;
+    font-weight: 500;
+    position: absolute;
+    z-index: -1;
+}
+button#add-task-btn {
+    background-color: tomato;
+    color: white;
+    font-size: large;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 12px;
+    position: relative;
+    left: 20%;
+    height: 4vh;
+    width: 8vw;
+}

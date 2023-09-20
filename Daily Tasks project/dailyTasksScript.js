@@ -53,3 +53,9 @@ myCheckbox.addEventListener('click', () => {
 deleteTaskBtn.addEventListener('click', () => {
     myContentWrapper.removeChild(myTaskContainer);
 });
+
+//It doesnt add elements based on their classes and ids provided
+
+/*Possible Solutions:
+    1-
+*/

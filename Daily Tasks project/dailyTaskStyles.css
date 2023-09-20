@@ -1,6 +1,11 @@
 body {
     background-image: linear-gradient(to bottom right, rgb(196, 137, 194), rgb(128, 43, 0), blue, purple, yellow);
 }
+
+:root {
+    --marTop: 30px;
+}
+
 div.container {
     background-color: white;
     width: 30vw;
@@ -23,7 +28,7 @@ div.task-container {
     height: 50px;
     width: 30vw;
     top: 50%;
-    margin-top: 30px;
+    margin-top: var(--marTop);
 }
 input#inp-type-txt {
     height: 4vh;

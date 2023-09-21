@@ -89,7 +89,7 @@ input#inp-type-txt:hover {
     cursor: pointer;
 }
 
-input#check-box-inp {
+input.check-box-inp {
     width: 2rem;
     height: 2rem;
     border: none;

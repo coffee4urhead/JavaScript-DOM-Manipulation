@@ -7,7 +7,7 @@ const marTopVal = getComputedStyles.getPropertyValue('--marTop');
 const myAddTaskButton = document.querySelector('#add-task-btn');
 const myInputField = document.querySelector('#inp-type-txt');
 const taskTxt = document.querySelector('.task-txt');
-const myCheckbox = document.querySelector('#check-box-inp');
+const myCheckbox = document.querySelector('.check-box-inp');
 const deleteTaskBtn = document.querySelector('.del-task-btn');
 
 let marginTopHolder = 0;
@@ -35,7 +35,8 @@ myAddTaskButton.addEventListener('click', () => {
         
         let newTaskCheckbox = document.createElement('input');
         newTaskCheckbox.setAttribute('type', 'checkbox');
-        newTaskCheckbox.setAttribute('id', 'check-box-inp');
+        newTaskCheckbox.setAttribute('name', 'checkbox-inp-new');
+        newTaskCheckbox.classList.add('check-box-inp');
         newTaskDivContainer.appendChild(newTaskCheckbox);
         
         let newTaskInfo = document.createElement('p');

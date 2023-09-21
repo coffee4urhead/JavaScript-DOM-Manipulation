@@ -110,3 +110,8 @@ function readData() {
 }
 
 readData();
+/*
+        ###Error and bug fixing probable issues:
+        1.-- I should fix the behaviour of the loaded data when loading it, because the checkbox and delete button fuctions are not working properly on these loaded elements
+        2.-- I should style a little bit further my program 
+ */

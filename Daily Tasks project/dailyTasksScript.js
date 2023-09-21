@@ -12,14 +12,20 @@ const deleteTaskBtn = document.querySelector('.del-task-btn');
 
 let marginTopHolder = 0;
 let cssHeightVariable = 50;
+
 myAddTaskButton.addEventListener('click', () => {
     
     marginTopHolder += 40;
+    if(myInputField.value === "") {
+        alert("Cannot enter a unspecified task to do!");
+        return;
+    }
     
     if(taskTxt.innerText === myInputField.value) {
         alert("Cannot enter the same task again!");
         return;
     } 
+
     else {
         let txtValueOfInputField = myInputField.value;
         

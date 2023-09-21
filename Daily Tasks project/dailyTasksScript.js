@@ -13,6 +13,8 @@ const deleteTaskBtn = document.querySelector('.del-task-btn');
 let marginTopHolder = 0;
 let cssHeightVariable = 50;
 
+localStorage.setItem("taskInstances", 0);
+
 myAddTaskButton.addEventListener('click', () => {
     
     marginTopHolder += 40;
@@ -25,8 +27,12 @@ myAddTaskButton.addEventListener('click', () => {
         alert("Cannot enter the same task again!");
         return;
     } 
-
+    
     else {
+        let instancesBefore = localStorage.getItem("taskInstances");
+        let instToNumber = Number(instancesBefore);
+        instToNumber++;
+        localStorage.setItem("taskInstances", instToNumber.toString());
         let txtValueOfInputField = myInputField.value;
         
         let newTaskDivContainer = document.createElement('div');
@@ -70,7 +76,7 @@ myAddTaskButton.addEventListener('click', () => {
     }
     
 });
-    let clicksOnTheCheckbox = 0;
+let clicksOnTheCheckbox = 0;
 myCheckbox.addEventListener('click', () => {
     
     clicksOnTheCheckbox++;

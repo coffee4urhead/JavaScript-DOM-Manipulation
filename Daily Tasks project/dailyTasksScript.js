@@ -68,6 +68,7 @@ function mainAppFunction() {
 
             cssHeightVariable += 10;
             myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');
+            myInputField.value = "";
             storeData();
         }
 

@@ -35,15 +35,14 @@ myAddTaskButton.addEventListener('click', () => {
         localStorage.setItem("taskInstances", instToNumber.toString());
         let txtValueOfInputField = myInputField.value;
         
-        let newTaskDivContainer = document.createElement('div');
-        newTaskDivContainer.classList.add('task-container');
-        newTaskDivContainer.style.setProperty('--marTop', marginTopHolder + "px");
+        let newTaskListItem = document.createElement('li');
+        newTaskListItem.style.setProperty('--marTop', marginTopHolder + "px");
         
         let newTaskCheckbox = document.createElement('input');
         newTaskCheckbox.setAttribute('type', 'checkbox');
         newTaskCheckbox.setAttribute('name', 'checkbox-inp-new');
         newTaskCheckbox.classList.add('check-box-inp');
-        newTaskDivContainer.appendChild(newTaskCheckbox);
+        newTaskListItem.appendChild(newTaskCheckbox);
         
         let newTaskInfo = document.createElement('p');
         newTaskInfo.classList.add('task-txt');
@@ -59,17 +58,17 @@ myAddTaskButton.addEventListener('click', () => {
             }
         });
         newTaskInfo.innerText = txtValueOfInputField;
-        newTaskDivContainer.appendChild(newTaskInfo);
+        newTaskListItem.appendChild(newTaskInfo);
         
         let deleteButtonForAddedTask = document.createElement('button');
         deleteButtonForAddedTask.classList.add('del-task-btn');
         deleteButtonForAddedTask.innerText = 'Del';
         deleteButtonForAddedTask.addEventListener('click', () => {
-            myContentWrapper.removeChild(newTaskDivContainer);
+            myTaskContainer.removeChild(newTaskListItem);
         });
-        newTaskDivContainer.appendChild(deleteButtonForAddedTask);
+        newTaskListItem.appendChild(deleteButtonForAddedTask);
         
-        myContentWrapper.appendChild(newTaskDivContainer);
+        myTaskContainer.appendChild(newTaskListItem);
         
         cssHeightVariable += 10;
         myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');

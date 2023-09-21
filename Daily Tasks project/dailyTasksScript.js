@@ -11,17 +11,18 @@ const myCheckbox = document.querySelector('#check-box-inp');
 const deleteTaskBtn = document.querySelector('.del-task-btn');
 
 let marginTopHolder = 0;
+let cssHeightVariable = 50;
 myAddTaskButton.addEventListener('click', () => {
     
     marginTopHolder += 40;
-
+    
     if(taskTxt.innerText === myInputField.value) {
         alert("Cannot enter the same task again!");
         return;
     } 
     else {
         let txtValueOfInputField = myInputField.value;
-
+        
         let newTaskDivContainer = document.createElement('div');
         newTaskDivContainer.classList.add('task-container');
         newTaskDivContainer.style.setProperty('--marTop', marginTopHolder + "px");
@@ -34,7 +35,7 @@ myAddTaskButton.addEventListener('click', () => {
         let newTaskInfo = document.createElement('p');
         newTaskInfo.classList.add('task-txt');
         newTaskCheckbox.addEventListener('click', () => {
-    
+            
             clicksOnTheCheckbox++;
             if(clicksOnTheCheckbox == 1){
                 newTaskInfo.style.textDecoration = "line-through";
@@ -46,7 +47,7 @@ myAddTaskButton.addEventListener('click', () => {
         });
         newTaskInfo.innerText = txtValueOfInputField;
         newTaskDivContainer.appendChild(newTaskInfo);
-
+        
         let deleteButtonForAddedTask = document.createElement('button');
         deleteButtonForAddedTask.classList.add('del-task-btn');
         deleteButtonForAddedTask.innerText = 'Del';
@@ -54,10 +55,13 @@ myAddTaskButton.addEventListener('click', () => {
             myContentWrapper.removeChild(newTaskDivContainer);
         });
         newTaskDivContainer.appendChild(deleteButtonForAddedTask);
-
+        
         myContentWrapper.appendChild(newTaskDivContainer);
+        
+        cssHeightVariable += 10;
+        myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');
     }
-
+    
 });
     let clicksOnTheCheckbox = 0;
 myCheckbox.addEventListener('click', () => {

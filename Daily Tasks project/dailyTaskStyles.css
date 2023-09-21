@@ -1,15 +1,31 @@
 body {
     background-image: linear-gradient(to bottom right, rgb(196, 137, 194), rgb(128, 43, 0), blue, purple, yellow);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 :root {
     --marTop: 30px;
+    --heightForContainer: 50vh;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
 }
 
 div.container {
     background-color: white;
     width: 30vw;
-    height: 50vh;
+    height: var(--heightForContainer);
+    max-height: 100vh;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -20,6 +36,7 @@ div.container {
     right: 50%;
     left: 50%;
 }
+
 div.task-container {
     position: absolute;
     display: flex;
@@ -30,6 +47,7 @@ div.task-container {
     top: 50%;
     margin-top: var(--marTop);
 }
+
 input#inp-type-txt {
     height: 4vh;
     width: 20vw;
@@ -42,6 +60,7 @@ input#inp-type-txt {
     position: absolute;
     z-index: -1;
 }
+
 button#add-task-btn {
     background-color: tomato;
     color: white;
@@ -54,24 +73,29 @@ button#add-task-btn {
     height: 5vh;
     width: 8vw;
 }
+
 p.task-txt {
     display: inline-block;
 }
+
 button#add-task-btn:hover {
     background-color: rgb(233, 103, 81);
     color: black;
     font-weight: 300;
     font-size: medium;
 }
+
 input#inp-type-txt:hover {
     cursor: pointer;
 }
+
 input#check-box-inp {
     width: 2rem;
     height: 2rem;
     border: none;
     border-radius: 100%;
 }
+
 button.del-task-btn {
     width: 2rem;
     height: 2rem;

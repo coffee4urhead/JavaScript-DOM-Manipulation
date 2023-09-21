@@ -57,7 +57,7 @@ function mainAppFunction() {
             newTaskListItem.appendChild(newTaskInfo);
 
             let deleteButtonForAddedTask = document.createElement('button');
-            deleteButtonForAddedTask.innerText = 'Del';
+            deleteButtonForAddedTask.innerText = 'Delete task';
             deleteButtonForAddedTask.addEventListener('click', () => {
                 myTaskContainer.removeChild(newTaskListItem);
                 storeData();

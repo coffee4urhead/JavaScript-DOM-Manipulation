@@ -223,66 +223,55 @@ button:hover {
     from {
         transform: translate(12px, 45px) rotate(15deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     10%{
         transform: translate(15px, 64px) rotate(45deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     20%{
-        transform: translate(20px, 100px) rotate(89deg);
+        transform: translate(10px, 100px) rotate(89deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     30%{
         transform: translate(30px, 150px) rotate(139deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     40%{
-        transform: translate(40px, 175px) rotate(130deg);
+        transform: translate(20px, 175px) rotate(130deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     50%{
         transform: translate(50px, 200px) rotate(179deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     60%{
-        transform: translate(60px, 250px) rotate(230deg);
+        transform: translate(40px, 250px) rotate(230deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     70%{
         transform: translate(70px, 300px) rotate(250deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     80%{
-        transform: translate(80px, 350px) rotate(300deg);
+        transform: translate(60px, 350px) rotate(300deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     90%{
-        transform: translate(90px, 400px) rotate(350deg);
+        transform: translate(80px, 400px) rotate(350deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
     
     to {
         transform: translate(100px, 450px) rotate(360deg);
         transition: transform 1s;
-        transition-timing-function: ease-in-out;
     }
   }

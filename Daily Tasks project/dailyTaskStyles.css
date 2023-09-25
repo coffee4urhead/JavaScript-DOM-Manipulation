@@ -102,12 +102,28 @@ input {
     border-radius: 100%;
 }
 
+input#inp-type-txt:focus {
+    background-image: linear-gradient(to left, green, blue);
+    animation-name: expandAnimation;
+    animation-iteration-count: 2;
+    animation-duration: 1.2s;
+    animation-delay: 0.2s;
+    animation-timing-function: ease-in-out;
+}
+
 button {
     width: 6rem;
     height: 2rem;
     border: none;
     border-radius: 100%;
     margin-left: 10px;
+}
+
+button:hover {
+    background-color: rgb(130, 133, 137);
+    font-size: larger;
+    font-weight: 500;
+    font-stretch: condensed;
 }
 
 @keyframes myAnimation {
@@ -169,4 +185,28 @@ button {
         border-radius: 12px;
     }
 }
-  
+  @keyframes expandAnimation {
+    from {
+        transform: scale(1,1);
+        transition: transform 1.2s;
+    }
+    20%{background-image: linear-gradient(to left, green, blue)}
+    20%{background-image: linear-gradient(to left, rgb(19, 133, 19), rgb(22, 22, 132))}
+    40%{background-image: linear-gradient(to left, rgb(43, 156, 43), rgb(32, 32, 135))}
+    60%{background-image: linear-gradient(to left, rgb(67, 172, 67), rgb(64, 64, 153))}
+    80%{background-image: linear-gradient(to left, rgb(66, 139, 66), rgb(64, 64, 182))}
+    to {
+        
+        transform: scale(2,2);
+        transition: transform 1.2s;
+    }
+  }
+  @keyframes rotateAddButton {
+    from {
+        
+    }
+
+    to {
+        
+    }
+  }

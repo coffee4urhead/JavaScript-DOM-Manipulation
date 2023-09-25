@@ -23,7 +23,7 @@ body {
 
 div.container {
     background-color: white;
-    width: 30vw;
+    width: 45vw;
     height: var(--heightForContainer);
     max-height: 100vh;
     border-radius: 12px;
@@ -63,8 +63,11 @@ input#inp-type-txt {
     color: rgb(42, 39, 39);
     font-size: larger;
     font-weight: 500;
-    position: absolute;
-    z-index: -1;
+    position: relative;
+    left: -10%;
+    bottom: 20%;
+    border: 5px solid black;
+    transition: box-shadow 2s;
 }
 
 button#add-task-btn {
@@ -75,7 +78,8 @@ button#add-task-btn {
     text-align: center;
     border-radius: 12px;
     position: fixed;
-    left: 58%;
+    left: 70%;
+    bottom:65%;
     height: 5vh;
     width: 8vw;
 }
@@ -89,10 +93,13 @@ button#add-task-btn:hover {
     color: black;
     font-weight: 300;
     font-size: medium;
+    transition: transform 2s;
+    transform: rotateY(90deg);
 }
 
 input#inp-type-txt:hover {
     cursor: pointer;
+    box-shadow: 2px 3px 4px 5px yellow, 2px 2px 3px 3px green, 1px 1px 2px 4px red;
 }
 
 input {
@@ -187,26 +194,18 @@ button:hover {
 }
   @keyframes expandAnimation {
     from {
-        transform: scale(1,1);
+        transform: scaleY(1);
+        transform: rotate(8deg);
         transition: transform 1.2s;
     }
-    20%{background-image: linear-gradient(to left, green, blue)}
-    20%{background-image: linear-gradient(to left, rgb(19, 133, 19), rgb(22, 22, 132))}
-    40%{background-image: linear-gradient(to left, rgb(43, 156, 43), rgb(32, 32, 135))}
-    60%{background-image: linear-gradient(to left, rgb(67, 172, 67), rgb(64, 64, 153))}
-    80%{background-image: linear-gradient(to left, rgb(66, 139, 66), rgb(64, 64, 182))}
+    20%{background-image: linear-gradient(to left, green, blue); transform: rotate(17deg);}
+    20%{background-image: linear-gradient(to left, rgb(19, 133, 19), rgb(22, 22, 132)); transform: rotate(9deg);}
+    40%{background-image: linear-gradient(to left, rgb(43, 156, 43), rgb(32, 32, 135)); transform: rotate(8deg);}
+    60%{background-image: linear-gradient(to left, rgb(67, 172, 67), rgb(64, 64, 153)); transform: rotate(9deg);}
+    80%{background-image: linear-gradient(to left, rgb(66, 139, 66), rgb(64, 64, 182)); transform: rotate(8deg);}
     to {
-        
-        transform: scale(2,2);
+        transform: rotate(9deg);
+        transform: scaleY(2);
         transition: transform 1.2s;
-    }
-  }
-  @keyframes rotateAddButton {
-    from {
-        
-    }
-
-    to {
-        
     }
   }

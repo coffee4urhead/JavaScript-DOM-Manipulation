@@ -35,6 +35,12 @@ div.container {
     top: 50%;
     right: 50%;
     left: 50%;
+    animation-name: myAnimation;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: ease;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
 }
 
 ul.task-container {
@@ -103,3 +109,64 @@ button {
     border-radius: 100%;
     margin-left: 10px;
 }
+
+@keyframes myAnimation {
+    from {
+        background: linear-gradient(#fff, #fff) padding-box,
+                    linear-gradient(45deg, purple, orange) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+    }
+
+    20%{
+        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgb(129, 13, 129), rgb(122, 82, 8)) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+        box-shadow: 2px 3px 2px 4px red, 1px 2px 4px 3px yellow, 4px 4px 2px 2px green;
+        transition: box-shadow 1.2s;
+    }
+    
+    40%{
+        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgb(132, 25, 132), rgb(125, 87, 15)) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+        box-shadow: 2px 3px 2px 4px red, 1px 2px 4px 3px yellow, 4px 4px 2px 2px green;
+        transition: box-shadow 1.2s;
+    }
+    
+    60%{
+        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgb(130, 37, 130), rgb(155, 111, 31)) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+        box-shadow: 2px 3px 2px 4px red, 1px 2px 4px 3px yellow, 4px 4px 2px 2px green;
+        transition: box-shadow 1.2s;
+    }
+    
+    80%{
+        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgb(147, 53, 147), rgb(204, 150, 50)) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+        box-shadow: 2px 3px 2px 4px red, 1px 2px 4px 3px yellow, 4px 4px 2px 2px green;
+        transition: box-shadow 1.2s;
+    }
+
+    to {
+        background: linear-gradient(#fff, #fff) padding-box,
+                    linear-gradient(45deg, orange, purple) border-box;
+        transition-property: background;
+        transition-duration: 1.2s;
+        border: 5px solid transparent;
+        border-radius: 12px;
+    }
+}
+  

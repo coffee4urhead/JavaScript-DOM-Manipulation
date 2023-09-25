@@ -143,15 +143,6 @@ button:hover {
     position: absolute;
 }
 
-.task-pic::before {
-    margin-left: 23px;
-    padding-left: 34px;
-}
-.task-pic::after {
-    margin-right: 23px;
-    padding-right: 34px;
-}
-
 @keyframes myAnimation {
     from {
         background: linear-gradient(#fff, #fff) padding-box,

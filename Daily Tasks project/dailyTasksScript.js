@@ -12,14 +12,13 @@ const deleteTaskBtn = document.getElementsByTagName('button')[1];
 
 let marginTopHolder = 0;
 let cssHeightVariable = 50;
-
+let marginLeftHolder = 5;
 myAddTaskButton.addEventListener('click', mainAppFunction());
 
 function mainAppFunction() {
     myAddTaskButton.addEventListener('click', () => {
 
         marginTopHolder += 40;
-
         if (myInputField.value === "") {
             alert("Cannot enter a unspecified task to do!");
             return;
@@ -29,48 +28,58 @@ function mainAppFunction() {
             alert("Cannot enter the same task again!");
             return;
         }
+        marginLeftHolder += 50;
 
-        else {
-            let txtValueOfInputField = myInputField.value;
+        let txtValueOfInputField = myInputField.value;
 
-            let newTaskListItem = document.createElement('li');
-            newTaskListItem.style.setProperty('--marTop', marginTopHolder + "px");
+        let newTaskListItem = document.createElement('li');
+        newTaskListItem.style.setProperty('--marTop', marginTopHolder + "px");
 
-            let newTaskCheckbox = document.createElement('input');
-            newTaskCheckbox.setAttribute('type', 'checkbox');
-            newTaskCheckbox.setAttribute('name', 'checkbox-inp-new');
-            newTaskListItem.appendChild(newTaskCheckbox);
+        let newTaskCheckbox = document.createElement('input');
+        newTaskCheckbox.setAttribute('type', 'checkbox');
+        newTaskCheckbox.setAttribute('name', 'checkbox-inp-new');
+        newTaskListItem.appendChild(newTaskCheckbox);
 
-            let newTaskInfo = document.createElement('p');
-            newTaskCheckbox.addEventListener('click', () => {
+        let newTaskInfo = document.createElement('p');
+        newTaskCheckbox.addEventListener('click', () => {
 
-                clicksOnTheCheckbox++;
-                if (clicksOnTheCheckbox == 1) {
-                    newTaskInfo.style.textDecoration = "line-through";
-                }
-                else {
-                    clicksOnTheCheckbox = 0;
-                    newTaskInfo.style.textDecoration = "none";
-                }
-            });
-            newTaskInfo.innerText = txtValueOfInputField;
-            newTaskListItem.appendChild(newTaskInfo);
+            clicksOnTheCheckbox++;
+            if (clicksOnTheCheckbox == 1) {
+                newTaskInfo.style.textDecoration = "line-through";
+            }
+            else {
+                clicksOnTheCheckbox = 0;
+                newTaskInfo.style.textDecoration = "none";
+            }
+        });
+        newTaskInfo.innerText = txtValueOfInputField;
+        newTaskListItem.appendChild(newTaskInfo);
 
-            let deleteButtonForAddedTask = document.createElement('button');
-            deleteButtonForAddedTask.innerText = 'Delete task';
-            deleteButtonForAddedTask.addEventListener('click', () => {
-                myTaskContainer.removeChild(newTaskListItem);
-                storeData();
-            });
-            newTaskListItem.appendChild(deleteButtonForAddedTask);
+        let myNewTaskImage = document.createElement('img');
+        myNewTaskImage.classList.add('task-pic');
+        myNewTaskImage.setAttribute('margin-left', marginLeftHolder + 'px');
+        myNewTaskImage.setAttribute('alt', 'the task picture is here');
+        myNewTaskImage.setAttribute('src', 'picturesFold/home.png');
+        document.body.append(myNewTaskImage);
 
-            myTaskContainer.appendChild(newTaskListItem);
+        let deleteButtonForAddedTask = document.createElement('button');
+        deleteButtonForAddedTask.innerText = 'Delete task';
 
-            cssHeightVariable += 10;
+        deleteButtonForAddedTask.addEventListener('click', () => {
+            myTaskContainer.removeChild(newTaskListItem);
+            document.body.removeChild(myNewTaskImage);
+            cssHeightVariable -= 10;
             myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');
-            myInputField.value = "";
             storeData();
-        }
+        });
+        newTaskListItem.appendChild(deleteButtonForAddedTask);
+
+        myTaskContainer.appendChild(newTaskListItem);
+
+        cssHeightVariable += 10;
+        myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');
+        myInputField.value = "";
+        storeData();
 
     });
 }

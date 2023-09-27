@@ -60,7 +60,7 @@ input#inp-type-txt {
     background-color: rgb(177, 163, 163);
     border-radius: 12px;
     text-align: left;
-    color: rgb(42, 39, 39);
+    color: rgb(255, 255, 255);
     font-size: larger;
     font-weight: 500;
     position: relative;
@@ -119,23 +119,24 @@ input#inp-type-txt:focus {
 }
 
 button {
-    width: 6rem;
-    height: 2rem;
-    border: none;
-    border-radius: 100%;
+    color: white;
+    --background-col-light-bl: rgb(52, 52, 235);
+    --background-col-dark-bl: rgb(26, 26, 203);
+    background-color: var(--background-col-light-bl);
+    box-shadow: 6px 6px 0px var(--background-col-dark-bl);
     margin-left: 10px;
+    border-radius: 12px;
+    height: 4vh;
 }
 
-button:hover {
-    background-color: rgb(130, 133, 137);
-    font-size: larger;
-    font-weight: 500;
-    font-stretch: condensed;
+button:active {
+    transform: translateX(2px) translateY(2px);
+    box-shadow: 4px 4px 0px var(--background-col-dark-bl);
 }
-
 .task-pic {
     width: 5rem;
     height: 5rem;
+    margin-left: 5px;
     animation-name: fallingAnimation;
     animation-duration: 3s;
     animation-timing-function: ease-out;

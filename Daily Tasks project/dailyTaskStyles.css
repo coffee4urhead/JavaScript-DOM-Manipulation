@@ -63,6 +63,7 @@ input#inp-type-txt {
     color: rgb(255, 255, 255);
     font-size: larger;
     font-weight: 500;
+    font-family: 'Skranji', cursive;
     position: relative;
     left: -10%;
     bottom: 20%;
@@ -75,6 +76,7 @@ button#add-task-btn {
     color: white;
     font-size: large;
     font-weight: 500;
+    font-family: 'Skranji', cursive;
     text-align: center;
     border-radius: 12px;
     position: fixed;
@@ -86,6 +88,7 @@ button#add-task-btn {
 
 p {
     display: inline-block;
+    font-family: 'Skranji', cursive;
 }
 
 button#add-task-btn:hover {
@@ -120,6 +123,7 @@ input#inp-type-txt:focus {
 
 button {
     color: white;
+    font-family: 'Skranji', cursive;
     --background-col-light-bl: rgb(52, 52, 235);
     --background-col-dark-bl: rgb(26, 26, 203);
     background-color: var(--background-col-light-bl);

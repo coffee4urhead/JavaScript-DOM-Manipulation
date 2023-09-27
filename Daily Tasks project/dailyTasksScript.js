@@ -105,14 +105,6 @@ function addEventListenerToTheCheckbox() {
     });
 }
 
-deleteTaskBtn.addEventListener('click', deleteTaskFunc());
-
-function deleteTaskFunc() {
-    deleteTaskBtn.addEventListener('click', () => {
-        myContentWrapper.removeChild(myTaskContainer);
-    });
-}
-
 function storeData() {
     localStorage.setItem("tasksElements", myTaskContainer.innerHTML);
 }

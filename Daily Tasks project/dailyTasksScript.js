@@ -57,7 +57,7 @@ function mainAppFunction() {
 
         let myNewTaskImage = document.createElement('img');
         myNewTaskImage.classList.add('task-pic');
-        myNewTaskImage.setAttribute('margin-left', marginLeftHolder + 'px');
+        myNewTaskImage.style.marginLeft = marginLeftHolder + 'px';
         myNewTaskImage.setAttribute('alt', 'the task picture is here');
         myNewTaskImage.setAttribute('src', 'picturesFold/home.png');
         document.body.append(myNewTaskImage);
@@ -66,12 +66,15 @@ function mainAppFunction() {
         deleteButtonForAddedTask.innerText = 'Delete task';
 
         deleteButtonForAddedTask.addEventListener('click', () => {
+
             myTaskContainer.removeChild(newTaskListItem);
             document.body.removeChild(myNewTaskImage);
             cssHeightVariable -= 10;
             myContentWrapper.style.setProperty('height', cssHeightVariable + 'vh');
-            localStorage.removeItem('tasksElements');
+            storeData();
+
         });
+
         newTaskListItem.appendChild(deleteButtonForAddedTask);
 
         myTaskContainer.appendChild(newTaskListItem);

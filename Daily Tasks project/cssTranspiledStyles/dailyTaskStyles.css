@@ -9,3 +9,9 @@ p a {
   margin-top: 34px;
   top: 50%;
 }
+
+h1 img {
+  position: absolute;
+  color: gray;
+  backdrop-filter: blur(5px);
+}

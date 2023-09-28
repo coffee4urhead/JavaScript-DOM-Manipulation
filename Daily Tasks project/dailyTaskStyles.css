@@ -146,6 +146,7 @@ button:active {
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
     position: absolute;
+    left: 5%;
 }
 
 @keyframes myAnimation {

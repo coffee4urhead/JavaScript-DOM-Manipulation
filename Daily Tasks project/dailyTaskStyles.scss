@@ -10,6 +10,8 @@ p {
     a {
 
         color: $body-lin-gradient-firstColor;
-        
+        position: relative;
+        margin-top: 34px;
+        top: 50%;
     }
 }

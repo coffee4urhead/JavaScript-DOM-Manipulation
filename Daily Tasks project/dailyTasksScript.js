@@ -28,7 +28,7 @@ function mainAppFunction() {
             alert("Cannot enter the same task again!");
             return;
         }
-        marginLeftHolder += 50;
+        marginLeftHolder += 40;
 
         let txtValueOfInputField = myInputField.value;
 

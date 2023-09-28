@@ -1,5 +1,5 @@
-const { src, dest, watch, series} = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
+const { src, dest, watch, series} = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
 
 function transpileStyles() {
     return src('dailyTaskStyles.scss')
@@ -8,7 +8,7 @@ function transpileStyles() {
 }
 
 function watchTask() {
-    watch(['dailyTaskStyles.scss'], transpileStyles());
+    watch(['dailyTaskStyles.scss'], transpileStyles())
 }
 
-exports.default = series(transpileStyles, watchTask);
+exports.default = series(transpileStyles, watchTask)

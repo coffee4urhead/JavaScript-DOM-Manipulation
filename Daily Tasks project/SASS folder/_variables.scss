@@ -27,3 +27,11 @@ $my-color-pallette: (
 // @else {
 //     @debug "It is not yellow at all!";
 // }
+
+// @function myFancyColorFunction($color-var: #12fa3d) {
+//     $complementary-color: complement($color-var);
+//     $light-up-Of-the-complement: lighten($complementary-color, 50%);
+//     @return $light-up-Of-the-complement;
+// }
+
+// @debug myFancyColorFunction(red);

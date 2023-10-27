@@ -1,0 +1,35 @@
+body {
+  background-color: yellow;
+  padding-inline: "32px";
+  padding-block: "32px";
+  margin-block: "12px";
+  margin-inline: "12px";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#calculatorBtn-1 {
+  background-color: red;
+}
+
+#calculatorBtn-1 {
+  background-color: green;
+}
+
+#calculatorBtn-1 {
+  background-color: blue;
+}
+
+#calculatorBtn-1 {
+  background-color: darkcyan;
+}
+
+#calculatorBtn-1 {
+  background-color: pink;
+}
+
+#calculatorBtn-1 {
+  background-color: violet;
+}/*# sourceMappingURL=sassStylesForCalculator.css.map */

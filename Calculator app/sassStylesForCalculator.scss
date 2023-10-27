@@ -1,0 +1,31 @@
+@mixin simpleBodyStyle($color: "darkgreen", $paddings: "32px", $margins: "12px"){
+    background-color: $color;
+    padding-inline: $paddings;
+    padding-block: $paddings;
+    margin-block: $margins;
+    margin-inline: $margins;
+}
+
+body {
+    @include simpleBodyStyle(yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+$colorPallete: ("redColor": red, "greenColor":green, "blueColor": blue, "cyanColor": darkcyan, "pinkColor": pink, "violetColor": violet);
+
+@for $i from 1 through 6 {
+
+    @if $i == 1 {
+
+        @each $key, $val in $colorPallete {
+            #calculatorBtn-#{$i}{
+                background-color: $val;
+            }
+        }
+
+        $i: 6
+    }
+}

@@ -1,0 +1,18 @@
+/*Color variables*/
+h1 a {
+  color: yellow;
+}
+
+p a {
+  color: rgb(196, 137, 194);
+  position: relative;
+  margin-top: 34px;
+  top: 50%;
+}
+
+h1 img {
+  position: absolute;
+  color: gray;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}/*# sourceMappingURL=dailyTaskStyles.css.map */

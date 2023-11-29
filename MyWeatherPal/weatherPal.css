@@ -31,15 +31,12 @@ div#pagination-nav {
     width: 25%;
     height: 80vh;
 }
-div#pagination-nav ul#list-of-nav {
-    display: block;
-    list-style-type: none;
-}
-ul#list-of-nav li {
+
+div#list-of-nav hr a {
     background-color: beige;
 }
 
-div#pagination-nav ul#list-of-nav li hr {
+div#pagination-nav div#list-of-nav a hr {
     border-width: 5px;
     border-style: groove;
 }
@@ -57,22 +54,38 @@ div#contents-page p {
     bottom: 40%;
 }
 div#pagination-nav div.account-ui {
-    background-color: rebeccapurple;
     width: 100%;
     height: 120px;
 }
 div.account-ui img#prof-pic {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin-inline: 12px;
     margin-top: 5px;
     border-radius: 10px;
 }
 div.account-ui div.aside-info {
     display: inline;
+    float: right;
+    margin-right: 110px;
 }
 div.account-ui div.aside-info img{
     width: 30px;
     padding-left: 12px;
     height: 30px;
+}
+div.account-ui div.aside-info img:hover{
+    background-color: rgb(75, 73, 73);
+}
+div.aside-info p {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+}
+div#list-of-nav a {
+    width: 100px;
+    height: 30px;
+}
+a:hover {
+    background-color: rebeccapurple;
 }

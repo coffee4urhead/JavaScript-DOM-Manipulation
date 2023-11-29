@@ -32,15 +32,6 @@ div#pagination-nav {
     height: 80vh;
 }
 
-div#list-of-nav hr a {
-    background-color: beige;
-}
-
-div#pagination-nav div#list-of-nav a hr {
-    border-width: 5px;
-    border-style: groove;
-}
-
 div#contents-page {
     columns: 3;
     column-gap: 10px;

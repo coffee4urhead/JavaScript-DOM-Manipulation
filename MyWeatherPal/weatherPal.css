@@ -55,3 +55,60 @@ div#container-wrapper div#pagination-nav div.aside-info img {
 div#container-wrapper div#pagination-nav div.aside-info {
     display: inline-block;
 }
+div.rotating-card {
+    width: 80%;
+    height: 25%;
+    margin-inline: 13px;
+    margin-block: 15px;
+    background-color: cadetblue;
+    border-radius: 12px;
+}
+div.rotating-card:hover {
+    transition: transform 1.2s;
+    transform: rotateY(180deg);
+    perspective: 1000px;
+    backface-visibility: visible;
+}
+div.rotating-card img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+/* @keyframes rotating-card {
+    from {
+        backface-visibility: visible;
+        transform: rotate3d(12deg);
+    }
+
+    to {
+        transform: rotate3d(360deg);
+    }
+} */
+/* 
+Potential animation for the given card element in out html file
+from{
+        transform: rotateY(0deg);
+        backface-visibility: hidden;
+        perspective-origin: 80px;
+    }
+    25%{
+        transform: rotateY(100deg);
+        backface-visibility: visible;
+        perspective-origin: 100px;
+    }
+    50% {
+        transform: rotateY(150deg);
+        backface-visibility: visible;
+        perspective-origin: 130px;
+    }
+    75% {
+        transform: rotateY(250deg);
+        backface-visibility: visible;
+        perspective-origin:150px;
+    }
+    to {
+        perspective-origin: 25px;
+        backface-visibility: visible;
+        transform: rotateY(360deg);
+    }
+ */

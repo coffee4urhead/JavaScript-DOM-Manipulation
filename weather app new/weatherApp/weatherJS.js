@@ -9,9 +9,6 @@ const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
 async function updateInfo(city = null) {
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=";
-    let apiKey = "dce6dc38844a3cca159d69eee2f287c9";
-    let metricSystemApplied = "&units=metric";
     
     if ( myInputTextField.value.length === 0 ) {
         alert("You didnt enter a city name!");
@@ -25,8 +22,8 @@ async function updateInfo(city = null) {
             return;
         }
     }
-
-    let response = await fetch(url + city + `&appid=${apiKey}` + metricSystemApplied);
+    
+    let response = await fetch(`/apiResp/${city}`);
     let data = await response.json();
     console.log(data);
     
@@ -45,17 +42,17 @@ async function updateInfo(city = null) {
     let typeOfWeather = data.weather[0].main;
 
     if( typeOfWeather === "Clouds" ){
-        imageOfWeather.src = "../pictures for app/cloudy.svg";
+        imageOfWeather.src = "images/cloudy.svg";
     }else if( typeOfWeather === "Clear" ) {
-        imageOfWeather.src = "../pictures for app/clear-day.svg";
+        imageOfWeather.src = "images/clear-day.svg";
     }else if ( typeOfWeather === "Rain" ) {
-        imageOfWeather.src = "../pictures for app/rain.svg";
+        imageOfWeather.src = "images/rain.svg";
     }else if ( typeOfWeather === "Drizzle" ) {
-        imageOfWeather.src = "../pictures for app/drizzle.svg";
+        imageOfWeather.src = "images/drizzle.svg";
     }else if ( typeOfWeather === "Mist" ) {
-        imageOfWeather.src = "../pictures for app/mist.svg";
+        imageOfWeather.src = "images/mist.svg";
     }else if ( typeOfWeather === "Snow" ) {
-        imageOfWeather.src = "../pictures for app/snow.svg";
+        imageOfWeather.src = "images/snow.svg";
     } else {
         alert( "No weather icon available for the usage of the API!" );
     }

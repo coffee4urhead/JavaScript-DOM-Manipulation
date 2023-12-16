@@ -1,5 +1,5 @@
 let imageOfWeather = document.querySelector('.img-src');
-let degreesText = document.querySelector('.deg');
+let degreesText = document.querySelector('.°C');
 let cityText = document.querySelector('.city');
 let humidityPercentage = document.querySelector('.hum-percentage');
 let windSpeed = document.querySelector('.wind-speed');
@@ -35,8 +35,8 @@ async function updateInfo(city = null) {
     }
     let feelsLikeTemp = data.main.feels_like;
 
-    feelsLikeTemperatureParagraph.innerText = `Feels like: ${Math.round(feelsLikeTemp)} degrees`;
-    degreesText.innerText = Math.round(data.main.temp) + "deg";
+    feelsLikeTemperatureParagraph.innerText = `Feels like: ${Math.round(feelsLikeTemp)} °C`;
+    degreesText.innerText = Math.round(data.main.temp) + "°C";
     cityText.innerText = data.name;
     humidityPercentage.innerText = data.main.humidity + "%";
     windSpeed.innerText = data.wind.speed + "km/h";
@@ -44,17 +44,17 @@ async function updateInfo(city = null) {
     let typeOfWeather = data.weather[0].main;
 
     if( typeOfWeather === "Clouds" ){
-        imageOfWeather.srx = "clouds.png";
+        imageOfWeather.src = "cloudy.svg";
     }else if( typeOfWeather === "Clear" ) {
-        imageOfWeather.src = "clear.png";
+        imageOfWeather.src = "clear-day.svg";
     }else if ( typeOfWeather === "Rain" ) {
-        imageOfWeather.src = "rain.png";
+        imageOfWeather.src = "rain.svg";
     }else if ( typeOfWeather === "Drizzle" ) {
-        imageOfWeather.src = "drizzle.png";
+        imageOfWeather.src = "drizzle.svg";
     }else if ( typeOfWeather === "Mist" ) {
-        imageOfWeather.src = "mist.png";
+        imageOfWeather.src = "mist.svg";
     }else if ( typeOfWeather === "Snow" ) {
-        imageOfWeather.src = "snow.png";
+        imageOfWeather.src = "snow.svg";
     } else {
         alert( "No weather icon available for the usage of the API!" );
     }

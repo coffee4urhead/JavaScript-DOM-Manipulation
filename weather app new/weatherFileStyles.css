@@ -183,7 +183,7 @@ div.wind-cont p {
     }
     
     div.info-section-wrap {
-        bottom: 160px;
+        bottom: 90px;
         width: 100%;
     }
     div.info-section-wrap div.wind-section {
@@ -194,7 +194,7 @@ div.wind-cont p {
     }
 }
 /*Tablet*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     
     p.feels-like {
         margin-bottom: -3px;
@@ -225,7 +225,7 @@ div.wind-cont p {
     }
     
     div.info-section-wrap {
-        bottom: 150px;
+        bottom: 80px;
         width: 60vw;
         height: 16vh;
     }
@@ -297,7 +297,7 @@ div.wind-cont p {
         height: 24vh;
     }
     div.info-section-wrap {
-        bottom: 22vh;
+        bottom: 12vh;
     }
 }
 @media screen and (max-width: 321px) {

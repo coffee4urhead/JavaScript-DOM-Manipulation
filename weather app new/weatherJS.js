@@ -28,7 +28,8 @@ async function updateInfo(city = null) {
 
     let response = await fetch(url + city + `&appid=${apiKey}` + metricSystemApplied);
     let data = await response.json();
-
+    console.log(data);
+    
     if(data.cod === "404" || data.cod === "400"){
         alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
         return;
@@ -44,17 +45,17 @@ async function updateInfo(city = null) {
     let typeOfWeather = data.weather[0].main;
 
     if( typeOfWeather === "Clouds" ){
-        imageOfWeather.src = "cloudy.svg";
+        imageOfWeather.src = "./pictures for app/cloudy.svg";
     }else if( typeOfWeather === "Clear" ) {
-        imageOfWeather.src = "clear-day.svg";
+        imageOfWeather.src = "./pictures for app/clear-day.svg";
     }else if ( typeOfWeather === "Rain" ) {
-        imageOfWeather.src = "rain.svg";
+        imageOfWeather.src = "./pictures for app/rain.svg";
     }else if ( typeOfWeather === "Drizzle" ) {
-        imageOfWeather.src = "drizzle.svg";
+        imageOfWeather.src = "./pictures for app/drizzle.svg";
     }else if ( typeOfWeather === "Mist" ) {
-        imageOfWeather.src = "mist.svg";
+        imageOfWeather.src = "./pictures for app/mist.svg";
     }else if ( typeOfWeather === "Snow" ) {
-        imageOfWeather.src = "snow.svg";
+        imageOfWeather.src = "./pictures for app/snow.svg";
     } else {
         alert( "No weather icon available for the usage of the API!" );
     }

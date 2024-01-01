@@ -1,0 +1,316 @@
+div.serch-section {
+    width: 2px;
+    height: 5vh;
+}
+button.search-btn img{
+    width: 2vw;
+    height: 4vh;
+    object-position: center;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+div.search-section button.search-btn {
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    top: 10px;
+}
+div.wrapper {
+    margin-block: 50px;
+    margin-inline: 50px;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(79, 185, 255));
+    text-align: center;
+    width: 40vw;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    column-gap: 1px;
+    border-radius: 10px;
+    outline-offset: 5px;
+    outline-color: rgb(255, 255, 255);
+    outline-width: 3px;
+}
+p.°C {
+    color: white;
+    font: menu;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+p.feels-like {
+    color: white;
+    font: menu;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+p.city {
+    color: white;
+    font: menu;
+    font-size: 50px;
+    font-weight: 500;
+    padding-top: 0;
+    margin-top: 2px;
+    margin-bottom: 13vh;
+}
+img.img-src {
+    display: block;
+    object-position: center;
+    width: 10vw;
+    height: 15vh; 
+}
+input#inp-text { 
+    text-align: center;
+    width: 15vw;
+    height: 4vh;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+/*This will be changed*/
+div.info-section-wrap {
+    width: 40vw;
+    height: 18vh;
+    position: relative;
+    bottom: 75px;
+}
+div.info-section-wrap div.humidity-section {
+    float: left;
+    height: 100%;
+    width: 15vw;
+    display: flex;
+}
+div.hum-cont p {
+    color: azure;
+    font: menu;
+    font-size: 20px;
+    font-weight: 400;
+}
+div.info-section-wrap div.wind-section {
+    float: right;
+    height: 100%;
+    width: 15vw;
+    display: flex;
+}
+div.wind-cont p {
+    font: menu;
+    color: azure;
+    font-size: 20px;
+    font-weight: 400;
+}
+/* To here */
+
+/*Laptop L*/
+@media screen and (max-width: 1440px) { 
+    div.wrapper {
+        height: 85vh;
+    }
+    div.info-section-wrap {
+        bottom: 100px;
+    }
+    
+    img.img-src {
+        display: block;
+        object-position: center;
+        width: 13vw;
+        height: 17vh; 
+    }
+    
+    div.search-section {
+        margin-top: 20px;
+    }
+    
+    input#inp-text {
+        width: 300px;
+        height: 50px;
+    }
+    
+    button.search-btn {
+        height: 58px;
+        width: 65px;
+    }
+}
+
+/*Laptop*/
+@media screen and (max-width: 1024px) {
+    
+    p.°C {
+        font-size: 35px;
+    }
+    p.city {
+        color: white;
+        font: menu;
+        font-size: 40px;
+        font-weight: 500;
+        padding-top: 0;
+        margin-top: 2px;
+        margin-bottom: 13vh;
+    }
+    img.img-src {
+        display: block;
+        object-position: center;
+        width: 10vw;
+        height: 15vh; 
+    }
+    
+    div.wrapper {
+        width: 50vw;
+        height: 85vh;
+        margin-block: 28px;
+    }
+    div.search-section {
+        margin-top: 20px;
+    }
+    
+    input#inp-text {
+        width: 300px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    button.search-btn {
+        height: 58px;
+        width: 58px;
+    }
+    
+    div.info-section-wrap {
+        bottom: 90px;
+        width: 100%;
+    }
+    div.info-section-wrap div.wind-section {
+        width: 50%;
+    }
+    div.info-section-wrap div.humidity-section {
+        width: 50%;
+    }
+}
+/*Tablet*/
+@media screen and (max-width: 769px) {
+    
+    p.feels-like {
+        margin-bottom: -3px;
+    }
+    
+    div.wrapper {
+        width: 65vw;
+        height: 80vh;
+    }
+    
+    input#inp-text {
+        width: 350px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    button.search-btn {
+        height: 56px;
+        width: 58px;
+    }
+    button.search-btn img {
+        height: 36px;
+        width: 38px;
+    }
+    
+    div.search-section {
+        margin-top: 15px;
+    }
+    
+    div.info-section-wrap {
+        bottom: 80px;
+        width: 60vw;
+        height: 16vh;
+    }
+    
+    div.info-section-wrap div.humidity-section {
+        width: 22vw;
+    }
+    
+    div.info-section-wrap div.wind-section {
+        width: 22vw;
+    }
+    
+    div.wind-cont p {
+        font-size: 15px;
+    }
+    
+    div.hum-cont p {
+        font-size: 15px;
+        font-weight: 400;
+    }
+}
+/*Mobile L*/
+
+@media screen and (max-width: 426px) {
+    div.wrapper {
+        width:75%;
+        height: 85vh;
+    }
+    div.search-section input#inp-text {
+        width: 68%;
+        height: 40px;
+        font-weight: 300;
+        font: menu;
+    }
+    div.search-section button.search-btn{
+        position: relative;
+        top: 22%;
+        width: 25%;
+        height: 45px;
+    }
+    div.search-section button.search-btn img {
+        width: 20px;
+        object-position: top;
+    }
+    div.info-section-wrap {
+        width: 100%;
+        position: relative;
+        bottom: 80px;
+    }
+    div.info-section-wrap div.humidity-section {
+        width: 50%;
+    }
+    div.info-section-wrap div.wind-section {
+        width: 50%;
+    }
+    img.humidity-pic {
+        width: 60px;
+        height: 60px;
+    }
+    img.wind-pic {
+        width: 60px;
+        height: 60px;
+    }
+}
+/*Mobile M*/
+@media screen and (max-width: 376px) {
+    img.img-src {
+        width: 24vw;
+        height: 24vh;
+    }
+    div.info-section-wrap {
+        bottom: 12vh;
+    }
+}
+@media screen and (max-width: 321px) {
+    div.info-section-wrap {
+        height: 35%;
+        margin-top: 12px;
+    }
+    div.info-section-wrap div.humidity-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    div.info-section-wrap div.wind-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

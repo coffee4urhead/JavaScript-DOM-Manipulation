@@ -1,5 +1,3 @@
-/* aboutStyles.css */
-
 /* Reset */
 * {
     margin: 0;
@@ -9,17 +7,18 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #F6EEE0; /* Warm beige background color */
+    background-color: #F6EEE0;
 }
 
 header {
-    background-color: #F9E4B7; /* Light brown background color */
+    background-color: #F9E4B7;
     padding: 20px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
     align-items: center;
 }
 
@@ -38,15 +37,22 @@ main {
     padding: 40px 20px;
 }
 
+main.cards-container {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 .wrapper {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
     align-items: center;
     margin-bottom: 40px;
 }
 
 .item {
-    flex: 1;
+    text-align: center;
+    padding: 20px;
 }
 
 .pic-cont img {
@@ -56,7 +62,7 @@ main {
 }
 
 section {
-    background-color: #F9E4B7; /* Light brown background color */
+    background-color: #F9E4B7;
     padding: 40px 20px;
 }
 
@@ -80,7 +86,7 @@ h1 {
 }
 
 .vals-card {
-    background-color: #FFF; /* White background color */
+    background-color: #FFF;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -105,7 +111,7 @@ p {
 }
 
 footer {
-    background-color: #F9E4B7; /* Light brown background color */
+    background-color: #F9E4B7;
     padding: 40px 20px;
     text-align: center;
 }
@@ -116,5 +122,33 @@ footer {
 }
 
 .wrapper-center .item {
+    text-align: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.grid-item p {
+    padding: 20px;
     text-align: left;
 }

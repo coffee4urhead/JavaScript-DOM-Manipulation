@@ -103,17 +103,17 @@ async function updateInfo(city = null) {
   let typeOfWeather = data.weather[0].main;
 
   if (typeOfWeather === "Clouds") {
-    imageOfWeather.src = "./pictures/cloudy.svg";
+    imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
   } else if (typeOfWeather === "Clear") {
-    imageOfWeather.src = "./pictures/clear-day.svg";
+    imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
   } else if (typeOfWeather === "Rain") {
-    imageOfWeather.src = "./pictures/rain.svg";
+    imageOfWeather.src = "./images/pictures for weather app/rain.svg";
   } else if (typeOfWeather === "Drizzle") {
-    imageOfWeather.src = "./pictures/drizzle.svg";
+    imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
   } else if (typeOfWeather === "Mist") {
-    imageOfWeather.src = "./pictures/mist.svg";
+    imageOfWeather.src = "./images/pictures for weather app/mist.svg";
   } else if (typeOfWeather === "Snow") {
-    imageOfWeather.src = "./pictures/snow.svg";
+    imageOfWeather.src = "./images/pictures for weather app/snow.svg";
   } else {
     alert("No weather icon available for the usage of the API!");
   }
@@ -362,14 +362,14 @@ function addAstroInformation(data) {
   let moonImg = document.getElementById('phase');
 
   let moonPhases = {
-    "Waxing Crescent" : "./pictures/Moon phases/waxing-crescent-moon.jpg",
-    "First Quarter": "./pictures/Moon phases/First-quarter.jpg",
-    "Waxing Gibbous": "./pictures/Moon phases/Waxing-Gibbous.jpg",
-    "Full": "./pictures/Moon phases/full-moon.jpg",
-    "Waning Gibbous": "./pictures/Moon phases/Waning-Gibbous.jpg",
-    "Last Quarter": "./pictures/Moon phases/third-quarter-moon.jpg",
-    "Waning Crescent": "./pictures/Moon phases/Waning-Crescent.jpg",
-    "New Moon": "./pictures/Moon phases/New-Moon.jpg"
+    "Waxing Crescent" : "./images/Moon phases/waxing-crescent-moon.jpg",
+    "First Quarter": "./images/Moon phases/First-quarter.jpg",
+    "Waxing Gibbous": "./images/Moon phases/Waxing-Gibbous.jpg",
+    "Full": "./images/Moon phases/full-moon.jpg",
+    "Waning Gibbous": "./images/Moon phases/Waning-Gibbous.jpg",
+    "Last Quarter": "./images/Moon phases/third-quarter-moon.jpg",
+    "Waning Crescent": "./images/Moon phases/Waning-Crescent.jpg",
+    "New Moon": "./images/Moon phases/New-Moon.jpg"
   };
 
   for (const [key, val] of Object.entries(moonPhases)) {

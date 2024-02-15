@@ -4,9 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="aboutStyles.css"/>
-    <base target="_blank"/>
     <title>Weather Pal About Page!</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F6EEE0;
+        }
+
+        header {
+            background-color: #F9E4B7;
+            padding: 20px;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        main.cards-container {
+            display: grid;
+            grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .pic-cont img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        section {
+            background-color: #F9E4B7;
+            padding: 40px 20px;
+        }
+
+        #vals-back {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .vals-cont {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .vals-card {
+            background-color: #FFF;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .vals-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #F9E4B7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .wrapper-center {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wrapper-center .item {
+            text-align: left;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-item p {
+            padding: 20px;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,41 +173,56 @@
         </nav>
     </header>
 
-    <main>
-        <div class="wrapper wrapper-fst">
+    <main id="cards-cont">
+        <div class="wrapper">
             <div class="item">
                 <h2>About Us: Unveiling the WeatherCrafters</h2>
                 <p>
-                    Welcome to WeatherCrafters, where passion meets precision, and two aspiring students embark on a
-                    journey
-                    to redefine your weather experience. Meet Mihail and Viktor, the dynamic duo fueling
-                    the innovation behind your go-to weather companion.
+                    Welcome to WeatherCrafters, the brainchild of two driven individuals, Mihail and Viktor, who share a
+                    common vision: to transform the way you perceive and interact with weather forecasts. Our journey
+                    began with a simple idea - to harness the power of technology and innovation to create a weather
+                    platform that not only informs but also inspires. As passionate students with a deep-seated
+                    curiosity for the world around us, we embarked on this adventure with boundless enthusiasm and a
+                    commitment to excellence. With every line of code we write and every feature we develop, we strive
+                    to redefine the boundaries of weather forecasting, merging accuracy with accessibility to provide
+                    you with a truly unparalleled weather experience. Join us as we embark on this exciting journey,
+                    where passion meets precision, and together, we'll unlock the full potential of WeatherCrafters.
                 </p>
             </div>
             <div class="pic-cont">
                 <img src="./images/boat-img.jpg" class="img-right" alt="There is an picture" />
             </div>
         </div>
-        <div class="wrapper wrapper-scnd">
+        <div class="wrapper">
             <div class="pic-cont">
                 <img src="./images/boat-img.jpg" class="img-right" alt="There is an picture" />
             </div>
             <div class="item">
                 <h2>Who We Are:</h2>
                 <p>
-                    We are a pair of enthusiastic students with a shared love for programming and an unyielding
-                    curiosity for all things weather-related. What started as a classroom project has evolved into
-                    WeatherCrafters, a testament to our commitment to continuous learning and improvement.
+                    We are Mihail and Viktor, two passionate students on a mission to revolutionize the way people
+                    interact with weather information. Our journey began as a simple classroom project, born out of our
+                    shared love for programming and fascination with the intricate patterns of weather phenomena. Over
+                    time, our dedication and determination have transformed WeatherCrafters from a humble concept into a
+                    thriving platform for weather enthusiasts worldwide. Fueled by our insatiable curiosity and thirst
+                    for knowledge, we approach each new challenge with unwavering enthusiasm and a commitment to
+                    continuous improvement. WeatherCrafters is not just a project; it's a testament to our relentless
+                    pursuit of innovation and our belief in the power of technology to make a positive impact on
+                    people's lives.
                 </p>
             </div>
         </div>
-        <div class="wrapper wrapper-fst">
+        <div class="wrapper">
             <div class="item">
                 <h2>Our Journey:</h2>
                 <p>
-                    Currently honing our programming skills, we bring a fresh perspective to the world of weather
-                    forecasting. As avid learners, every line of code we write is a step toward mastering the art and
-                    science of crafting reliable, user-friendly weather applications.
+                    Our journey is fueled by our relentless passion for learning and innovation. Continuously honing our
+                    programming skills, we embrace each line of code as an opportunity to push the boundaries of weather
+                    forecasting. With a keen eye for detail and a commitment to excellence, we strive to elevate the
+                    user experience with our meticulously crafted applications. Each algorithm we refine, and each
+                    feature we implement is a testament to our dedication to providing accurate and intuitive weather
+                    solutions. As we navigate through the complexities of meteorology and technology, we remain
+                    steadfast in our pursuit of excellence, driven by our unwavering curiosity and thirst for knowledge.
                 </p>
             </div>
             <div class="pic-cont">
@@ -63,10 +232,10 @@
     </main>
 
     <section>
-        <div>
+        <div id="vals-back">
             <h1>Our Values:</h1>
             <div class="vals-cont">
-                <div>
+                <div class="vals-card">
                     <h3>1. Loyalty to Our Clients:</h3>
                     <p>
                         At WeatherCrafters, our clients are not just users; they are an integral part of our
@@ -76,7 +245,7 @@
                         of trust and loyalty.
                     </p>
                 </div>
-                <div>
+                <div class="vals-card">
                     <h3>2. Commitment to Project Improvement:</h3>
                     <p>
                         In the world of technology, stagnation is not an option. We are dedicated to the continuous
@@ -84,7 +253,7 @@
                         commitment to delivering a seamless and refined user experience.
                     </p>
                 </div>
-                <div>
+                <div class="vals-card">
                     <h3>3. User-Centric Design:</h3>
                     <p>
                         Your needs and preferences guide our design principles. We understand that a weather app
@@ -92,7 +261,7 @@
                         interaction with WeatherCrafters not just informative but also enjoyable.
                     </p>
                 </div>
-                <div>
+                <div class="vals-card">
                     <h3>4. Community Engagement:</h3>
                     <p>
                         WeatherCrafters is more than just an app; it's a community. Join us on this exciting journey
@@ -105,21 +274,38 @@
     </section>
     <footer>
         <div class="wrapper wrapper-center">
-            <div class="pic-cont">
-                <img src="./images/boat-img.jpg" class="img-right" alt="There is an picture" />
-            </div>
-            <div class="item">
-                <h2>Our Vision:</h2>
-                <p>
-                    WeatherCrafters is not just another weather app; it's a passion project fueled by our dedication to
-                    creating a comprehensive, user-centric platform. Imagine a weather app that not only informs you but
-                    also captivates you with its simplicity and elegance.
-                    <br />
-                    <hr />
-                    Join us as we embark on this exciting endeavor, driven by our love for programming, commitment to
-                    excellence, and the desire to offer you the best weather experience imaginable. Welcome to
-                    WeatherCrafters - where every forecast tells a story, and you're at the center of it all.
-                </p>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="./images/boat-img.jpg" alt="There is a picture" />
+                    <p>
+                        At WeatherCrafters, our vision extends beyond just providing weather updates. We aspire to
+                        create a
+                        seamless and immersive weather experience that not only informs but also inspires. Our goal is
+                        to
+                        empower users with comprehensive insights into weather patterns while fostering a deeper
+                        connection
+                        with the world around them.
+                    </p>
+                </div>
+                <div class="grid-item">
+                    <img src="./images/boat-img.jpg" alt="There is a picture" />
+                    <p>
+                        As we look to the future, we envision WeatherCrafters as a platform that seamlessly integrates
+                        weather data with personalized recommendations, community engagement features, and innovative
+                        technologies such as augmented reality. We strive to make weather forecasting not just a utility
+                        but
+                        an enriching part of everyday life.
+                    </p>
+                </div>
+                <div class="grid-item">
+                    <img src="./images/boat-img.jpg" alt="There is a picture" />
+                    <p>
+                        With a relentless commitment to innovation and user satisfaction, we aim to set new standards in
+                        the
+                        weather app industry, redefining how people interact with and understand the weather. Join us on
+                        this journey as we shape the future of weather forecasting together.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>

@@ -141,7 +141,7 @@ async function createChart(barChartData, objDataForTemps, objWindData) {
   tempsChartCanvas.id = 'temp-chart';
   tempsChartCanvas.classList.add('chart');
   canvasWrapper.appendChild(tempsChartCanvas);
-  
+
   const windChartCanvas = document.createElement('canvas');
   windChartCanvas.id = 'wind-speed-chart';
   windChartCanvas.classList.add('chart');
@@ -187,44 +187,77 @@ async function createChart(barChartData, objDataForTemps, objWindData) {
   new Chart(tempsChartCanvas, {
     type: 'line',
     data: {
-      labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-      datasets: [{
-        label: 'Temperature (F)',
-        data: objDataForTemps.temp_f,
-        borderColor: 'rgb(255, 99, 132)',
-        fill: true
-      }, {
-        label: 'Temperature (C)',
-        data: objDataForTemps.temp_c,
-        borderColor: 'rgb(54, 162, 235)',
-        fill: false
-      }]
+        labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+                label: 'Temperature (F)',
+                data: objDataForTemps.temp_f,
+                borderColor: 'rgb(255, 99, 132)',
+                fill: true
+            },
+            {
+                label: 'Temperature (C)',
+                data: objDataForTemps.temp_c,
+                borderColor: 'rgb(54, 162, 235)',
+                fill: false
+            }
+        ]
     },
     options: {
-      scales: {
-        y: {
-          title: {
-            display: true,
-            text: 'Temperatures in Fahrenheit and Celsius'
-          }
+        scales: {
+            y: {
+                title: {
+                    display: true,
+                    text: 'Temperatures in Fahrenheit and Celsius'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Time of the day (hour)'
+                }
+            }
         },
-        x: {
-          title: {
-            display: true,
-            text: 'Time of the day (hour)'
-          }
+        plugins: {
+            title: {
+                display: true,
+                text: 'Temperature Chart',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            },
+            legend: {
+                labels: {
+                    fontSize: 16
+                }
+            },
+            tooltips: {
+                mode: 'index'
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)',
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)',
+                    }
+                }
+            },
+            background: {
+                color: {
+                    gradient: {
+                        start: '#87CEEB',
+                        end: '#FFFFFF'
+                    }
+                }
+            }
         }
-      }
-    },
-    legend: {
-      labels: {
-        fontSize: 16, 
-      }
-    },
-    tooltips: {
-      mode: 'index'
     }
-  });
+});
+
 
   new Chart(windChartCanvas, {
     type: 'line',

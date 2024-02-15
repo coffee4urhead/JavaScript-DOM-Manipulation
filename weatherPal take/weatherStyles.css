@@ -13,7 +13,9 @@ header {
 }
 
 nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
+    align-items: center;
     justify-content: center;
     margin-top: 10px;
 }
@@ -32,6 +34,11 @@ nav a {
 
 nav a:hover {
     background-color: #604c4c;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
 }
 
 header {
@@ -164,17 +171,6 @@ div#canvas-wrapper {
     overflow: auto;
 }
 
-div#data-wrap {
-    margin-top: 20px;
-    height: 35rem;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    background-color: rgb(209, 198, 144);
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
 div#canvas-wrapper canvas {
     max-width: 30rem;
     max-height: 20rem;
@@ -214,42 +210,59 @@ div.upper {
     margin-top: -2px;
     transform: rotate(180deg);
 }
+div#data-wrap {
+    margin-top: 20px;
+    height: auto; /* Adjusted height to fit content */
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased minmax width */
+    background-color: #F9F8F6; /* Lighter background color */
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
+    padding: 20px; /* Added padding for better spacing */
+    background-color: rgb(244, 226, 191);
+}
+
 div#astro-information {
     margin-top: 20px;
-    height: 25rem;
-    background-color: #edc15b;
+    height: auto; /* Adjusted height to fit content */
+    background-color: #F5D28E; /* Warmer background color */
     border-radius: 20px;
     text-align: center;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
+    padding: 20px; /* Added padding for better spacing */
 }
+
 div#moon-and-sun {
-    width: 17rem;
-    height: 15rem;
+    width: 100%; /* Adjusted width to fit parent */
+    max-width: 600px; /* Added max-width for responsiveness */
+    height: auto; /* Adjusted height to fit content */
     border-radius: 20px;
-    background-color: #88c688;
+    background-color: #B1E6B3; /* Light green background color */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 0 auto; /* Centered horizontally */
+    gap: 20px;
+    padding: 20px; /* Added padding for better spacing */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
 }
+
+/* Common Styles */
+#moon, #sun {
+    text-align: left; /* Align text to the left */
+}
+
+.pic-container img {
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for images */
+}
+
 div.pic-container {
     width: 70%;
     height: 70%;
     margin-left: 10px;
     overflow: hidden;
-}
-
-div.pic-container img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: auto;
-    border-radius: 12px;
-    transform: rotate(5deg);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 div#chances {
     margin-top: 20px;

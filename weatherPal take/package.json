@@ -1,0 +1,22 @@
+{
+  "name": "weatherpal-take",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "startServer": "nodemon server.js"
+  },
+  "keywords": [
+    "weatherPal",
+    "weather forecasting",
+    "weather tracking"
+  ],
+  "author": "Mihail Mihaylov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

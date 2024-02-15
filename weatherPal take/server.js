@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+app.use(express.static('views'))
+app.use(express.json({ limit: "2mb" }))
+
 app.get('/', (req, res) => {
     res.send("Hello mfs")
 })

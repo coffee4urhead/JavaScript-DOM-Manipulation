@@ -11,10 +11,6 @@ const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
 async function updateInfo(city = null) {
-  let url = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let apiKey = "dce6dc38844a3cca159d69eee2f287c9";
-  let metricSystemApplied = "&units=metric";
-
   if (myInputTextField.value.length === 0) {
     alert("You didnt enter a city name!");
     return;
@@ -28,7 +24,7 @@ async function updateInfo(city = null) {
     }
   }
 
-  let response = await fetch(url + city + `&appid=${apiKey}` + metricSystemApplied);
+  let response = await fetch(`/apiResp/${city}`);
   let data = await response.json();
 
   if (data.cod === "404" || data.cod === "400") {

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/index', (req, res) => {
+router.post('/', (req, res) => {
     res.send("Hello index")
     console.log("Hello there I am here!In the index though")
 })

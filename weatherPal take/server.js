@@ -15,6 +15,14 @@ import('node-fetch').then((fetch) => {
         let response = await fetch.default(url + city + `&appid=${apiKey}` + metricSystemApplied);
         let data = await response.json();
         res.json(data);
+
+        let secondDataURL = "https://api.weatherapi.com/v1/history.json?key=";
+        let key = process.env.SECOND_API;
+        let date = new Date();
+        let fullURLForFetch = secondDataURL + key + `&q=${city}&dt=${date.toISOString().split("T")[0]}`;
+        let resp = await fetch(fullURLForFetch);
+        let secondDataResp = await resp.json();
+        res.json(secondDataResp);
     });
 });
 

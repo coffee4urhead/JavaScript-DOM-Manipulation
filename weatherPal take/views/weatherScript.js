@@ -25,7 +25,10 @@ async function updateInfo(city = null) {
   }
 
   let response = await fetch(`/apiResp/${city}`);
-  let data = await response.json();
+  let someData = await response.json();
+
+  let data = someData.weatherData;
+  let responseData = someData.secondWeatherData;
 
   if (data.cod === "404" || data.cod === "400") {
     alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
@@ -34,11 +37,6 @@ async function updateInfo(city = null) {
 
   console.log(data);
   console.log("--------------------------");
-
-  let apiKeyForWeather = 'e6c7b92e1d804267ab4164943231812';
-  let date = new Date();
-  let fetchDataTemp = await fetch('https://api.weatherapi.com/v1/history.json?key=' + apiKeyForWeather + `&q=${city}&dt=${date.toISOString().split("T")[0]}`);
-  let responseData = await fetchDataTemp.json();
   console.log(responseData);
 
   // precip_mm
@@ -362,15 +360,15 @@ function addAstroInformation(data) {
     let currentChild = moonContainer.children[i];
 
     if (i === 0) {
-      currentChild.textContent += data.moon_illumination;
+      currentChild.textContent = "Illumination: " + data.moon_illumination;
     } else if (i === 1) {
-      currentChild.textContent += data.moonset;
+      currentChild.textContent = "Moonset time: " +  data.moonset;
     } else if (i === 2) {
-      currentChild.textContent += data.moonrise;
+      currentChild.textContent = "Moonrise time: " + data.moonrise;
     } else if (i === 3) {
-      currentChild.textContent += data.moon_phase;
+      currentChild.textContent = "Moon phase: " + data.moon_phase;
     } else {
-      currentChild.textContent += "undefined";
+      currentChild.textContent = "undefined";
     }
   }
 
@@ -380,11 +378,11 @@ function addAstroInformation(data) {
     let currentChild = sunContainer.children[i];
 
     if (i === 0) {
-      currentChild.textContent += data.sunset;
+      currentChild.textContent = "Sunset time: " +  data.sunset;
     } else if (i === 1) {
-      currentChild.textContent += data.sunrise;
+      currentChild.textContent = "Sunrise time: " + data.sunrise;
     } else {
-      currentChild.textContent += "undefined";
+      currentChild.textContent = "undefined";
     }
   }
 
@@ -404,6 +402,7 @@ function addAstroInformation(data) {
   for (const [key, val] of Object.entries(moonPhases)) {
     if(key === data.moon_phase){
         moonImg.src = val;
+        moonImg.alt = key;
     }
   }
 }
@@ -415,17 +414,17 @@ function updateChancesInformation(chancesData) {
 
     if(j === 0){
       if(chancesData.daily_will_it_rain){
-        currentChild.textContent += "yes" + '\n' + 'with ' + chancesData.
+        currentChild.textContent = "Will it rain: " + "yes" + '\n' + 'with ' + chancesData.
         daily_chance_of_rain + '%' + " chance of rain";
       }else{
-        currentChild.textContent += "no";
+        currentChild.textContent = "Will it rain: " + "no";
       }
     }else if(j === 1){
       if(chancesData.daily_will_it_snow){
-        currentChild.textContent += "yes" + '\n' + "with " + chancesData.
+        currentChild.textContent = "Will it snow: " + "yes" + '\n' + "with " + chancesData.
         daily_chance_of_snow + '%' + " chance of snow";
       }else{
-        currentChild.textContent += "no"
+        currentChild.textContent = "Will it snow: " + "no"
       }
     }
   }

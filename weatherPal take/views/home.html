@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homeStyles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <title>My weather pal!</title>
 </head>
 
@@ -15,9 +18,12 @@
         <a href="./about.html" id="about">About</a>
         <a href="./weather.html" id="weather">Weather Page</a>
     </nav>
-    
-    <header>
 
+    <header>
+        <video autoplay loop muted>
+            <source src="./videos/nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="head-info first-cart">
             <h2>Welcome to our weather app</h2>
             <p>Explore the world of weather with our intuitive and feature-rich weather application. Whether you're
@@ -39,9 +45,6 @@
                 about severe weather alerts. Start exploring today and make every day a perfect weather day!</p>
         </div>
     </header>
-
-
-    <hr style="border: 4px solid grey; margin-top: 10px;" />
 
     <main class="main-cards-cont">
         <div class="card hidden-rotator">
@@ -71,7 +74,8 @@
             <div class="cont-box">
                 <p>Access MyWeatherPal from any device, whether you're at home, at work, or on the go. Our
                     mobile-friendly platform ensures that you can stay connected to the latest weather updates
-                    wherever life takes you.</p>
+                    wherever life takes you.
+                </p>
             </div>
             <div class="buttons">
                 <button class="button"><a href="./weather.html">Download Now</a></button>
@@ -95,9 +99,9 @@
             </p>
         </div>
         <div class="city-gallery">
-            <img src="./images/New York.jpg" alt="New York" class="hidden-rotator" />
-            <img src="./images/tokyo-main.avif" alt="Tokyo" class="hidden-rotator" />
-            <img src="./images/Paris.jpg" alt="Paris" class="hidden-rotator" />
+            <img src="./images/pictures for weather app/clear-day.svg" alt="New York" class="hidden-rotator" />
+            <img src="./images/pictures for weather app/rain.svg" alt="Tokyo" class="hidden-rotator" />
+            <img src="./images/pictures for weather app/snow.svg" alt="Paris" class="hidden-rotator" />
         </div>
     </section>
 
@@ -121,7 +125,7 @@
                 </ul>
             </div>
         </div>
-        <div class="about hidden-rotator">
+        <div class="project-info hidden-rotator resize">
             <section>
                 <h2>Mihail: The Visionary Coder</h2>
                 <p>
@@ -134,7 +138,7 @@
                 </p>
             </section>
         </div>
-        <div class="about hidden-rotator">
+        <div class="project-info hidden-rotator resize">
             <section>
                 <h2>Viktor: The Tech Explorer</h2>
                 <p>
@@ -146,6 +150,15 @@
                 </p>
             </section>
         </div>
+        <!--
+            <Wather pal color Palette>
+
+            #efefef white col
+            #00abff light blue
+            #92a8b3 grey color
+            #094664 dark blue col
+            <>
+        -->
     </section>
 
     <script src="script.js"></script>

@@ -2,13 +2,13 @@ body {
     font-family: 'Roboto Slab', serif;
     margin: 0;
     padding: 0;
-    background-color: #ffdcb8;
+    background-color: #efefef;
 }
 
 nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    background-color: #333;
+    background-color: #094664;
     display: grid;
     align-items: center;
     gap: 12px;
@@ -20,10 +20,18 @@ nav a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: medium;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 nav a:hover {
-    background-color: #ddd;
+    background-color: #918e8e;
     color: black;
 }
 
@@ -35,31 +43,40 @@ nav>p {
 header {
     width: 100%;
     height: 33rem;
-    background-image: url('./images/polqna.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    outline: 4px solid greenyellow;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    margin-bottom: 120px;
 }
-
+header video {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .logo {
     width: 40px;
     height: 40px;
 }
 
 .head-info {
-    position: relative;
-    /* backdrop-filter: blur(20px); */
     border-radius: 12px;
-    backdrop-filter: blur(12px);
     color: white;
     font-size: medium;
     font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
+
 div a {
     text-decoration: none;
 }
@@ -67,10 +84,9 @@ div a {
 /* ============================ */
 
 /*Main section*/
-main {
-    background-color: #e9e0e0;
-    margin-top: 30px;
-    border: 7px double darkblue;
+main.main-cards-cont {
+    background-color: #92a8b3;
+    margin-top: 120px;
     gap: 10px;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -82,7 +98,6 @@ main {
 
 main div.card {
     border-radius: 12px;
-    border: 7px double darkblue;
 }
 
 .buttons {
@@ -91,14 +106,19 @@ main div.card {
 }
 
 .button {
-    background-color: #d35d50;
+    background-color: #f47c3c;
     color: #fff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    order: 3;
+    margin-top: 10px;
+}
+
+.button>a {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .button:hover {
@@ -106,50 +126,67 @@ main div.card {
 }
 
 div.cont-box {
-    background-color: #d39289;
-    border-radius: 12px;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    position: relative;
+    inset: 11px 11px 11px 11px;
 }
 
 div.card {
-    background-color: #f27979;
+    background-color: #094664;
+}
+
+div.card>h1 {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* ============================ */
 /*Subsection here*/
 .service-descr {
-    background-color: #b86156;
+    background-color: #094664;
     margin-top: 20px;
     width: 100%;
-    height: 20rem;
+    height: 25rem;
     margin-bottom: 20px;
     border-radius: 12px;
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 div.wrap-section {
-    box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    position: relative;
     width: 45%;
     height: 100px;
-    background-color: #f27979;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    top: 70px;
+    background-color: rgb(79, 185, 255);
+    top: 60px;
     margin-left: 20px;
+    border-radius: 12px;
 }
 
 div.wrap-section p {
-    color: #ffcf9d;
-    background-color: #f27979;
+    padding: 20px;
+    color: white;
+    background-color: rgb(79, 185, 255);
 }
 
-div.wrap-section h2 {
-    color: #ffcf9d;
+div.wrap-section>h2 {
+    color: white;
 }
 
 div.city-gallery {
     width: 50%;
     height: 210px;
-    background-color: #f27979;
+    background-color: #92a8b3;
     float: right;
     position: relative;
     right: 20px;
@@ -160,33 +197,14 @@ div.city-gallery {
     align-items: center;
     justify-content: space-around;
     gap: 30px;
-    margin-top: 35px;
+    margin-top: 50px;
 }
 
 div.city-gallery img {
     width: 170px;
     height: 180px;
-    animation-name: bluryEffect;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-    animation-delay: 1.0s;
+    border-radius: 12px;
 }
-
-@keyframes bluryEffect {
-    from {
-        opacity: 1.0;
-        transform: skewX(10deg);
-        transform: skewy(10deg);
-    }
-    
-    to {
-        opacity: 0.1;
-        transform: skewX(15deg);
-        transform: skewy(15deg);
-    }
-}
-
 /*Project info incorporated (Final page row)*/
 section#inc-info {
     height: 30rem;
@@ -199,31 +217,43 @@ section#inc-info {
 
 div.project-info {
     margin-top: 20px;
-    background-color: red;
-    height: 24rem;
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    color: #ffcf9d;
-    background-color: #f27979;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #00abff;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
     font-size: 19px;
+    border-radius: 12px;
 }
 
-.about {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 400px;
-    background-color: green;
-    height: 12rem;
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    color: #ffcf9d;
-    background-color: #f27979;
+div.list-key {
+    width: 80%;
+    height: 9rem;
+    margin: auto;
+    border-radius: 12px;
+    background-color: #89d1f5;
 }
 
+div.project-info p {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    padding: 5px;
+}
 .hidden-rotator {
     opacity: 0.1;
     transition: all 1s;
     filter: blur(5px);
     transform: rotate(5deg);
 }
+
 .show-rotator {
     opacity: 1;
     transform: rotate(0deg);

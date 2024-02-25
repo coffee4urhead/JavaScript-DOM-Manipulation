@@ -5,6 +5,9 @@ body {
     background-color: #f4ead0;
     color: #604c4c;
 }
+form {
+    display: inline-block;
+}
 
 header {
     background-color: #094664;

@@ -10,7 +10,26 @@ let feelsLikeTemperatureParagraph = document.querySelector('.feels-like');
 const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
-async function updateInfo(city = null) {
+var dateInput = document.getElementById('dateInput');
+
+var maxDate = new Date();
+var maxDateISO = maxDate.toISOString().split("T")[0];
+dateInput.value = maxDateISO;
+dateInput.max = maxDateISO;
+
+var minDate = new Date(maxDate);
+minDate.setDate(maxDate.getDate() - 7);
+var minDateISO = minDate.toISOString().split("T")[0];
+dateInput.min = minDateISO;
+
+myInputSearchButton.addEventListener('click', () => {
+  let cityEntered = myInputTextField.value;
+  let selectedDate = dateInput.value;
+  console.log(selectedDate);
+  updateInfo(cityEntered, selectedDate);
+})
+
+async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0]) {
   if (myInputTextField.value.length === 0) {
     alert("You didnt enter a city name!");
     return;
@@ -24,7 +43,7 @@ async function updateInfo(city = null) {
     }
   }
 
-  let response = await fetch(`/apiResp/${city}`);
+  let response = await fetch(`/apiResp/${city}/${selectedDate}`);
   let someData = await response.json();
 
   let data = someData.weatherData;
@@ -51,7 +70,7 @@ async function updateInfo(city = null) {
   let lineChartTempsInC = [];
   let lineChartTempsInF = [];
 
-  for(let item of lineChartsForTemperaturesData){
+  for (let item of lineChartsForTemperaturesData) {
     lineChartTempsInC.push(item.temp_c);
     lineChartTempsInF.push(item.temp_f);
   }
@@ -64,7 +83,7 @@ async function updateInfo(city = null) {
   let lineChartWindInKph = [];
   let lineChartWindInMph = [];
 
-  for(let item of lineChartsForTemperaturesData){
+  for (let item of lineChartsForTemperaturesData) {
     lineChartWindInMph.push(item.wind_mph);
     lineChartWindInKph.push(item.wind_kph);
   }
@@ -72,11 +91,11 @@ async function updateInfo(city = null) {
     "wind_mph": lineChartWindInMph,
     "wind_kph": lineChartWindInKph,
   };
-  
+
   //Moon data
   let astroData = responseData.forecast.forecastday[0].astro;
   //
-  
+
   //Chances of rain information
   let chancesData = responseData.forecast.forecastday[0].day;
   //
@@ -113,10 +132,6 @@ async function updateInfo(city = null) {
   }
 }
 
-myInputSearchButton.addEventListener('click', () => {
-  let cityEntered = myInputTextField.value;
-  updateInfo(cityEntered);
-})
 
 async function createChart(barChartData, objDataForTemps, objWindData) {
   // Remove existing canvas elements
@@ -170,87 +185,87 @@ async function createChart(barChartData, objDataForTemps, objWindData) {
     },
     legend: {
       labels: {
-        fontSize: 16, 
+        fontSize: 16,
       }
     },
     tooltips: {
-      mode: 'index' 
+      mode: 'index'
     }
   });
 
   new Chart(tempsChartCanvas, {
     type: 'line',
     data: {
-        labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-        datasets: [{
-                label: 'Temperature (F)',
-                data: objDataForTemps.temp_f,
-                borderColor: 'rgb(255, 99, 132)',
-                fill: true
-            },
-            {
-                label: 'Temperature (C)',
-                data: objDataForTemps.temp_c,
-                borderColor: 'rgb(54, 162, 235)',
-                fill: false
-            }
-        ]
+      labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+      datasets: [{
+        label: 'Temperature (F)',
+        data: objDataForTemps.temp_f,
+        borderColor: 'rgb(255, 99, 132)',
+        fill: true
+      },
+      {
+        label: 'Temperature (C)',
+        data: objDataForTemps.temp_c,
+        borderColor: 'rgb(54, 162, 235)',
+        fill: false
+      }
+      ]
     },
     options: {
-        scales: {
-            y: {
-                title: {
-                    display: true,
-                    text: 'Temperatures in Fahrenheit and Celsius'
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Time of the day (hour)'
-                }
-            }
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Temperatures in Fahrenheit and Celsius'
+          }
         },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Temperature Chart',
-                padding: {
-                    top: 10,
-                    bottom: 30
-                }
-            },
-            legend: {
-                labels: {
-                    fontSize: 16
-                }
-            },
-            tooltips: {
-                mode: 'index'
-            },
-            scales: {
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)',
-                    }
-                },
-                y: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)',
-                    }
-                }
-            },
-            background: {
-                color: {
-                    gradient: {
-                        start: '#87CEEB',
-                        end: '#FFFFFF'
-                    }
-                }
-            }
+        x: {
+          title: {
+            display: true,
+            text: 'Time of the day (hour)'
+          }
         }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Temperature Chart',
+          padding: {
+            top: 10,
+            bottom: 30
+          }
+        },
+        legend: {
+          labels: {
+            fontSize: 16
+          }
+        },
+        tooltips: {
+          mode: 'index'
+        },
+        scales: {
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.2)',
+            }
+          },
+          y: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.2)',
+            }
+          }
+        },
+        background: {
+          color: {
+            gradient: {
+              start: '#87CEEB',
+              end: '#FFFFFF'
+            }
+          }
+        }
+      }
     }
-});
+  });
 
 
   new Chart(windChartCanvas, {
@@ -287,7 +302,7 @@ async function createChart(barChartData, objDataForTemps, objWindData) {
     },
     legend: {
       labels: {
-        fontSize: 16, 
+        fontSize: 16,
       }
     },
     tooltips: {
@@ -362,7 +377,7 @@ function addAstroInformation(data) {
     if (i === 0) {
       currentChild.textContent = "Illumination: " + data.moon_illumination;
     } else if (i === 1) {
-      currentChild.textContent = "Moonset time: " +  data.moonset;
+      currentChild.textContent = "Moonset time: " + data.moonset;
     } else if (i === 2) {
       currentChild.textContent = "Moonrise time: " + data.moonrise;
     } else if (i === 3) {
@@ -378,7 +393,7 @@ function addAstroInformation(data) {
     let currentChild = sunContainer.children[i];
 
     if (i === 0) {
-      currentChild.textContent = "Sunset time: " +  data.sunset;
+      currentChild.textContent = "Sunset time: " + data.sunset;
     } else if (i === 1) {
       currentChild.textContent = "Sunrise time: " + data.sunrise;
     } else {
@@ -389,7 +404,7 @@ function addAstroInformation(data) {
   let moonImg = document.getElementById('phase');
 
   let moonPhases = {
-    "Waxing Crescent" : "./images/Moon phases/waxing-crescent-moon.jpg",
+    "Waxing Crescent": "./images/Moon phases/waxing-crescent-moon.jpg",
     "First Quarter": "./images/Moon phases/First-quarter.jpg",
     "Waxing Gibbous": "./images/Moon phases/Waxing-Gibbous.jpg",
     "Full": "./images/Moon phases/full-moon.jpg",
@@ -400,30 +415,30 @@ function addAstroInformation(data) {
   };
 
   for (const [key, val] of Object.entries(moonPhases)) {
-    if(key === data.moon_phase){
-        moonImg.src = val;
-        moonImg.alt = key;
+    if (key === data.moon_phase) {
+      moonImg.src = val;
+      moonImg.alt = key;
     }
   }
 }
 
 function updateChancesInformation(chancesData) {
   let ulListContainer = document.getElementById('chances-list');
-  for(let j = 0; j < ulListContainer.children.length; j++){
+  for (let j = 0; j < ulListContainer.children.length; j++) {
     let currentChild = ulListContainer.children[j];
 
-    if(j === 0){
-      if(chancesData.daily_will_it_rain){
+    if (j === 0) {
+      if (chancesData.daily_will_it_rain) {
         currentChild.textContent = "Will it rain: " + "yes" + '\n' + 'with ' + chancesData.
-        daily_chance_of_rain + '%' + " chance of rain";
-      }else{
+          daily_chance_of_rain + '%' + " chance of rain";
+      } else {
         currentChild.textContent = "Will it rain: " + "no";
       }
-    }else if(j === 1){
-      if(chancesData.daily_will_it_snow){
+    } else if (j === 1) {
+      if (chancesData.daily_will_it_snow) {
         currentChild.textContent = "Will it snow: " + "yes" + '\n' + "with " + chancesData.
-        daily_chance_of_snow + '%' + " chance of snow";
-      }else{
+          daily_chance_of_snow + '%' + " chance of snow";
+      } else {
         currentChild.textContent = "Will it snow: " + "no"
       }
     }

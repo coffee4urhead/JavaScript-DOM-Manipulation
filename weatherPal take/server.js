@@ -11,18 +11,17 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static('views'));
 
-app.get('/apiResp/:city', async (req, res) => {
+app.get('/apiResp/:city/:date', async (req, res) => {
     try {
-        const { city } = req.params;
+        const { city, date } = req.params;
         const apiKey = process.env.API_KEY;
         const metricSystemApplied = "&units=metric";
 
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${metricSystemApplied}`);
         const weatherData = await weatherResponse.json();
 
-        const currentDate = new Date().toISOString().split("T")[0];
         const secondAPIKey = process.env.SECOND_API;
-        const secondWeatherResponse = await fetch(`https://api.weatherapi.com/v1/history.json?key=${secondAPIKey}&q=${city}&dt=${currentDate}`);
+        const secondWeatherResponse = await fetch(`https://api.weatherapi.com/v1/history.json?key=${secondAPIKey}&q=${city}&dt=${date}`);
         const secondWeatherData = await secondWeatherResponse.json();
 
         res.json({ weatherData, secondWeatherData });

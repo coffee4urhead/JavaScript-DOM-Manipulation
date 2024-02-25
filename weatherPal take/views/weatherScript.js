@@ -10,17 +10,59 @@ let feelsLikeTemperatureParagraph = document.querySelector('.feels-like');
 const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
-var dateInput = document.getElementById('dateInput');
+let dateInput = document.getElementById('dateInput');
 
-var maxDate = new Date();
-var maxDateISO = maxDate.toISOString().split("T")[0];
+let maxDate = new Date();
+let maxDateISO = maxDate.toISOString().split("T")[0];
 dateInput.value = maxDateISO;
 dateInput.max = maxDateISO;
 
-var minDate = new Date(maxDate);
+let minDate = new Date(maxDate);
 minDate.setDate(maxDate.getDate() - 7);
-var minDateISO = minDate.toISOString().split("T")[0];
+let minDateISO = minDate.toISOString().split("T")[0];
 dateInput.min = minDateISO;
+
+let audio = null;
+let animationName = "";
+const allElements = document.querySelectorAll('*');
+
+function addAnimationToAllElements(animationName = "") {
+  if(animationName !== ""){
+    if(animationName == "snowing"){
+      allElements.forEach(element => {
+        element.classList.add('snowing');
+      });
+    }else if(animationName === "drizzle"){
+      allElements.forEach(element => {
+        element.classList.add('drizzle');
+      });
+    } else if(animationName === "rainy"){
+      allElements.forEach(element => {
+        element.classList.add('rainy');
+      });
+    } else if(animationName === "misty"){
+      allElements.forEach(element => {
+        element.classList.add('misty');
+      });
+    } else if(animationName === "clear-day"){
+      allElements.forEach(element => {
+        element.classList.add('clear-day');
+      });
+    } else if(animationName === "cloudy"){
+      allElements.forEach(element => {
+        element.classList.add('cloudy');
+      });
+    }
+  }
+}
+
+function removeAnimationFromAllElements(animationName = "") {
+  if(animationName !== ""){
+    allElements.forEach(element => {
+      element.classList.remove(animationName);
+    });
+  }
+}
 
 myInputSearchButton.addEventListener('click', () => {
   let cityEntered = myInputTextField.value;
@@ -30,25 +72,34 @@ myInputSearchButton.addEventListener('click', () => {
 })
 
 async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0]) {
+  
+  if(audio){
+    audio.pause();
+  }
+
+  if(animationName){
+    removeAnimationFromAllElements(animationName);
+  }
+
   if (myInputTextField.value.length === 0) {
     alert("You didnt enter a city name!");
     return;
   }
   else {
     let regexForSymbolCheck = /[./><;:'@[{}\]\#\~\+\=\_\-\¬\`\!\"\£\$\%\^\&\*0-9]+/gm;
-
+    
     if (regexForSymbolCheck.test(city)) {
       alert("The city name cannot contain symbols nor numbers");
       return;
     }
   }
-
+  
   let response = await fetch(`/apiResp/${city}/${selectedDate}`);
   let someData = await response.json();
-
+  
   let data = someData.weatherData;
   let responseData = someData.secondWeatherData;
-
+  
   if (data.cod === "404" || data.cod === "400") {
     alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
     return;
@@ -57,7 +108,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   console.log(data);
   console.log("--------------------------");
   console.log(responseData);
-
+  
   // precip_mm
   let barChartData = responseData.forecast.forecastday[0].hour;
   let objToSend = [];
@@ -69,7 +120,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   let lineChartsForTemperaturesData = responseData.forecast.forecastday[0].hour;
   let lineChartTempsInC = [];
   let lineChartTempsInF = [];
-
+  
   for (let item of lineChartsForTemperaturesData) {
     lineChartTempsInC.push(item.temp_c);
     lineChartTempsInF.push(item.temp_f);
@@ -82,7 +133,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   let lineChartDataForWind = responseData.forecast.forecastday[0].hour;
   let lineChartWindInKph = [];
   let lineChartWindInMph = [];
-
+  
   for (let item of lineChartsForTemperaturesData) {
     lineChartWindInMph.push(item.wind_mph);
     lineChartWindInKph.push(item.wind_kph);
@@ -91,45 +142,66 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     "wind_mph": lineChartWindInMph,
     "wind_kph": lineChartWindInKph,
   };
-
+  
   //Moon data
   let astroData = responseData.forecast.forecastday[0].astro;
   //
-
+  
   //Chances of rain information
   let chancesData = responseData.forecast.forecastday[0].day;
   //
-
+  
   updateChancesInformation(chancesData);
   addAstroInformation(astroData);
   createChart(objToSend, objPackaged, objPackagedWind);
   addUVIndexInfo(responseData);
-
+  
   let feelsLikeTemp = data.main.feels_like;
-
+  
   feelsLikeTemperatureParagraph.textContent = `Feels like: ${Math.round(feelsLikeTemp)} °C`;
   degreesText.textContent = Math.round(data.main.temp) + "°C";
   cityText.textContent = data.name;
   humidityPercentage.textContent = data.main.humidity + "%";
   windSpeed.textContent = data.wind.speed + "km/h";
-
+  
   let typeOfWeather = data.weather[0].main;
+  let audioToPlay = "";
 
   if (typeOfWeather === "Clouds") {
     imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
+    audioToPlay = "./sounds/light-drizzle.wav"
+    animationName = "cloudy";
   } else if (typeOfWeather === "Clear") {
     imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
+    audioToPlay = "./sounds/birds.mp3"
+    animationName = "clear-day"
   } else if (typeOfWeather === "Rain") {
     imageOfWeather.src = "./images/pictures for weather app/rain.svg";
+    audioToPlay = "./sounds/light-rain.mp3"
+    animationName = "rainy";
   } else if (typeOfWeather === "Drizzle") {
     imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
+    audioToPlay = "./sounds/light-drizzle.wav"
+    animationName = "drizzle"
   } else if (typeOfWeather === "Mist") {
     imageOfWeather.src = "./images/pictures for weather app/mist.svg";
+    audioToPlay = "./sounds/light-rain-mist.wav"
+    animationName = "misty";
   } else if (typeOfWeather === "Snow") {
     imageOfWeather.src = "./images/pictures for weather app/snow.svg";
+    audioToPlay = "./sounds/snowy_forest-snowfall.wav"
+    animationName = "snowing"
   } else {
     alert("No weather icon available for the usage of the API!");
   }
+  
+  if(animationName !== ""){
+    addAnimationToAllElements(animationName);
+  }
+
+  audio = new Audio(audioToPlay);
+  audio.loop = true;
+  audio.play();
 }
 
 

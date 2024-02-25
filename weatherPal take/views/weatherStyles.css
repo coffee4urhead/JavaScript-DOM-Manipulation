@@ -5,6 +5,7 @@ body {
     background-color: #f4ead0;
     color: #604c4c;
 }
+
 form {
     display: inline-block;
 }
@@ -63,11 +64,13 @@ canvas.myChart {
     width: 10px;
     height: 10px;
 }
+
 div.serch-section {
     width: 2px;
     height: 5vh;
 }
-button.search-btn img{
+
+button.search-btn img {
     width: 2vw;
     height: 4vh;
     object-position: center;
@@ -75,12 +78,14 @@ button.search-btn img{
     border-radius: 10px;
     margin-top: 10px;
 }
+
 div.search-section button.search-btn {
     border-radius: 30px;
     background-color: rgb(255, 255, 255);
     position: relative;
     top: 10px;
 }
+
 div.wrapper {
     margin-left: auto;
     margin-right: auto;
@@ -98,6 +103,7 @@ div.wrapper {
     outline-color: rgb(255, 255, 255);
     outline-width: 3px;
 }
+
 p.°C {
     color: white;
     font: menu;
@@ -105,6 +111,7 @@ p.°C {
     font-weight: 500;
     margin-bottom: 0px;
 }
+
 p.feels-like {
     color: white;
     font: menu;
@@ -112,6 +119,7 @@ p.feels-like {
     font-weight: 500;
     margin-bottom: 0px;
 }
+
 p.city {
     color: white;
     font: menu;
@@ -121,13 +129,15 @@ p.city {
     margin-top: 2px;
     margin-bottom: 13vh;
 }
+
 img.img-src {
     display: block;
     object-position: center;
     width: 10vw;
-    height: 15vh; 
+    height: 15vh;
 }
-input#inp-text { 
+
+input#inp-text {
     text-align: center;
     width: 15vw;
     height: 4vh;
@@ -142,33 +152,38 @@ div.info-section-wrap {
     position: relative;
     bottom: 75px;
 }
+
 div.info-section-wrap div.humidity-section {
     float: left;
     height: 100%;
     width: 15vw;
     display: flex;
 }
+
 div.hum-cont p {
     color: azure;
     font: menu;
     font-size: 20px;
     font-weight: 400;
 }
+
 div.info-section-wrap div.wind-section {
     float: right;
     height: 100%;
     width: 15vw;
     display: flex;
 }
+
 div.wind-cont p {
     font: menu;
     color: azure;
     font-size: 20px;
     font-weight: 400;
 }
+
 /*Canvas styles here*/
 div#canvas-wrapper {
-    min-height: auto; 
+    min-height: auto;
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -188,81 +203,117 @@ div#uv-slider {
     width: 300px;
     height: 5rem;
     border-radius: 30px;
-    background: linear-gradient(to right, 
-            #008000, /* green */
-            #7FFF00, /* light green */
-            #FFFF00, /* yellow */
-            #FFD700, /* orangy-like yellow */
-            #FFA500, /* orange */
-            #e37718, /* light orange */
-            #FF0000, /* red */
-            #B22222, /* more redder red */
-            #e36177, /* pink */
-            #f74560 /* light pink */
+    background: linear-gradient(to right,
+            #008000,
+            /* green */
+            #7FFF00,
+            /* light green */
+            #FFFF00,
+            /* yellow */
+            #FFD700,
+            /* orangy-like yellow */
+            #FFA500,
+            /* orange */
+            #e37718,
+            /* light orange */
+            #FF0000,
+            /* red */
+            #B22222,
+            /* more redder red */
+            #e36177,
+            /* pink */
+            #f74560
+            /* light pink */
         );
     border: 5px solid grey;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 }
+
 div.pointer {
     width: 5px;
     height: 5px;
-    border-left: 15px solid transparent; /* Adjust size as needed */
-    border-right: 15px solid transparent; /* Adjust size as needed */
+    border-left: 15px solid transparent;
+    /* Adjust size as needed */
+    border-right: 15px solid transparent;
+    /* Adjust size as needed */
     border-bottom: 25px solid #f00;
     position: relative;
     left: 0px;
 }
+
 div.upper {
     margin-top: -2px;
     transform: rotate(180deg);
 }
+
 div#data-wrap {
     margin-top: 20px;
-    height: auto; /* Adjusted height to fit content */
+    height: auto;
+    /* Adjusted height to fit content */
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased minmax width */
-    background-color: #F9F8F6; /* Lighter background color */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Increased minmax width */
+    background-color: #F9F8F6;
+    /* Lighter background color */
     border-radius: 12px;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
-    padding: 20px; /* Added padding for better spacing */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    /* Softened shadow */
+    padding: 20px;
+    /* Added padding for better spacing */
     background-color: rgb(244, 226, 191);
 }
 
 div#astro-information {
     margin-top: 20px;
-    height: auto; /* Adjusted height to fit content */
-    background-color: #F5D28E; /* Warmer background color */
+    height: auto;
+    /* Adjusted height to fit content */
+    background-color: #F5D28E;
+    /* Warmer background color */
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
-    padding: 20px; /* Added padding for better spacing */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    /* Softened shadow */
+    padding: 20px;
+    /* Added padding for better spacing */
 }
 
 div#moon-and-sun {
-    width: 100%; /* Adjusted width to fit parent */
-    max-width: 600px; /* Added max-width for responsiveness */
-    height: auto; /* Adjusted height to fit content */
+    width: 100%;
+    /* Adjusted width to fit parent */
+    max-width: 600px;
+    /* Added max-width for responsiveness */
+    height: auto;
+    /* Adjusted height to fit content */
     border-radius: 20px;
-    background-color: #B1E6B3; /* Light green background color */
+    background-color: #B1E6B3;
+    /* Light green background color */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin: 0 auto; /* Centered horizontally */
+    margin: 0 auto;
+    /* Centered horizontally */
     gap: 20px;
-    padding: 20px; /* Added padding for better spacing */
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1); /* Softened shadow */
+    padding: 20px;
+    /* Added padding for better spacing */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    /* Softened shadow */
 }
 
 /* Common Styles */
-#moon, #sun {
-    text-align: left; /* Align text to the left */
+#moon,
+#sun {
+    text-align: left;
+    /* Align text to the left */
 }
 
 .pic-container img {
-    max-width: 100%; /* Ensure images don't exceed container width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners for images */
+    max-width: 100%;
+    /* Ensure images don't exceed container width */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    /* Rounded corners for images */
 }
 
 div.pic-container {
@@ -271,6 +322,7 @@ div.pic-container {
     margin-left: 10px;
     overflow: hidden;
 }
+
 div#chances {
     margin-top: 20px;
     height: 12rem;
@@ -279,39 +331,42 @@ div#chances {
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
 div#chances-section {
     height: 6rem;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     background-color: #ede771;
 }
+
 /* To here */
 
 /*Laptop L*/
-@media screen and (max-width: 1440px) { 
+@media screen and (max-width: 1440px) {
     div.wrapper {
         height: 85vh;
     }
+
     div.info-section-wrap {
         bottom: 100px;
     }
-    
+
     img.img-src {
         display: block;
         object-position: center;
         width: 13vw;
-        height: 17vh; 
+        height: 17vh;
     }
-    
+
     div.search-section {
         margin-top: 20px;
     }
-    
+
     input#inp-text {
         width: 300px;
         height: 50px;
     }
-    
+
     button.search-btn {
         height: 58px;
         width: 65px;
@@ -320,10 +375,11 @@ div#chances-section {
 
 /*Laptop*/
 @media screen and (max-width: 1024px) {
-    
+
     p.°C {
         font-size: 35px;
     }
+
     p.city {
         color: white;
         font: menu;
@@ -333,157 +389,177 @@ div#chances-section {
         margin-top: 2px;
         margin-bottom: 13vh;
     }
+
     img.img-src {
         display: block;
         object-position: center;
         width: 10vw;
-        height: 15vh; 
+        height: 15vh;
     }
-    
+
     div.wrapper {
         width: 50vw;
         height: 85vh;
         margin-block: 28px;
     }
+
     div.search-section {
         margin-top: 20px;
     }
-    
+
     input#inp-text {
         width: 300px;
         height: 50px;
         font-size: 20px;
         font-weight: 600;
     }
-    
+
     button.search-btn {
         height: 58px;
         width: 58px;
     }
-    
+
     div.info-section-wrap {
         bottom: 160px;
         width: 100%;
     }
+
     div.info-section-wrap div.wind-section {
         width: 50%;
     }
+
     div.info-section-wrap div.humidity-section {
         width: 50%;
     }
 }
+
 /*Tablet*/
 @media screen and (max-width: 768px) {
-    
+
     p.feels-like {
         margin-bottom: -3px;
     }
-    
+
     div.wrapper {
         width: 65vw;
         height: 80vh;
     }
-    
+
     input#inp-text {
         width: 350px;
         height: 50px;
         font-size: 20px;
         font-weight: 600;
     }
+
     button.search-btn {
         height: 56px;
         width: 58px;
     }
+
     button.search-btn img {
         height: 36px;
         width: 38px;
     }
-    
+
     div.search-section {
         margin-top: 15px;
     }
-    
+
     div.info-section-wrap {
         bottom: 80px;
         width: 60vw;
         height: 16vh;
     }
-    
+
     div.info-section-wrap div.humidity-section {
         width: 22vw;
     }
-    
+
     div.info-section-wrap div.wind-section {
         width: 22vw;
     }
-    
+
     div.wind-cont p {
         font-size: 15px;
     }
-    
+
     div.hum-cont p {
         font-size: 15px;
         font-weight: 400;
     }
 }
+
 /*Mobile L*/
 
 @media screen and (max-width: 426px) {
     div.wrapper {
-        width:75%;
+        width: 75%;
         height: 85vh;
     }
+
     div.search-section input#inp-text {
         width: 68%;
         height: 40px;
         font-weight: 300;
         font: menu;
     }
-    div.search-section button.search-btn{
+
+    div.search-section button.search-btn {
         position: relative;
         top: 22%;
         width: 25%;
         height: 45px;
     }
+
     div.search-section button.search-btn img {
         width: 20px;
         object-position: top;
     }
+
     div.info-section-wrap {
         width: 100%;
         position: relative;
         bottom: 80px;
     }
+
     div.info-section-wrap div.humidity-section {
         width: 50%;
     }
+
     div.info-section-wrap div.wind-section {
         width: 50%;
     }
+
     img.humidity-pic {
         width: 60px;
         height: 60px;
     }
+
     img.wind-pic {
         width: 60px;
         height: 60px;
     }
 }
+
 /*Mobile M*/
 @media screen and (max-width: 376px) {
     img.img-src {
         width: 24vw;
         height: 24vh;
     }
+
     div.info-section-wrap {
         bottom: 10vh;
     }
 }
+
 @media screen and (max-width: 321px) {
     div.info-section-wrap {
         height: 35%;
         margin-top: 12px;
     }
+
     div.info-section-wrap div.humidity-section {
         width: 50%;
         display: flex;
@@ -491,6 +567,7 @@ div#chances-section {
         align-items: center;
         justify-content: center;
     }
+
     div.info-section-wrap div.wind-section {
         width: 50%;
         display: flex;
@@ -499,3 +576,104 @@ div#chances-section {
         justify-content: center;
     }
 }
+
+@keyframes snowing {
+    0% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+
+.snowing {
+    animation: freezeAndTremble 0.5s infinite;
+}
+
+@keyframes gentleFloat {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .clear-day {
+    animation: gentleFloat 5s ease-in-out infinite;
+  }
+
+  @keyframes drizzle {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .rainy {
+    animation: drizzle 2s ease-in-out infinite;
+  }
+  
+  @keyframes cloudy {
+    0% {
+      transform: translateX(-0.5%);
+    }
+    50% {
+      transform: translateX(0.5%);
+    }
+    100% {
+      transform: translateX(-0.5%);
+    }
+  }
+  
+  .cloudy {
+    animation: cloudy 10s ease-in-out infinite alternate;
+  }
+  
+  @keyframes misty {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+  
+  .misty {
+    animation: misty 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes drizzle {
+    0% {
+      opacity: 0.9;
+      transform: translateY(-5px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(5px);
+    }
+    100% {
+      opacity: 0.9;
+      transform: translateY(10px);
+    }
+  }
+  
+  .drizzle {
+    animation: drizzle 10s linear infinite;
+  }
+  
+  

@@ -6,7 +6,7 @@ let cityText = document.querySelector('.city');
 let humidityPercentage = document.querySelector('.hum-percentage');
 let windSpeed = document.querySelector('.wind-speed');
 let feelsLikeTemperatureParagraph = document.querySelector('.feels-like');
-
+let typeOfWeatherParag = document.querySelector('.weather-type');
 const myInputTextField = document.querySelector('#inp-text');
 const myInputSearchButton = document.querySelector('.search-btn');
 
@@ -26,29 +26,51 @@ let audio = null;
 let animationName = "";
 const allElements = document.querySelectorAll('*');
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let isPreferedReduced = false;
+
+if (prefersReducedMotion) {
+  isPreferedReduced = true;
+  alert('User prefers reduced motion');
+  const settingsLink = document.createElement('a');
+  settingsLink.textContent = "Go to Accessibility Settings";
+  settingsLink.href = "https://scholar.harvard.edu/ccwilcox/blog/how-reduce-motion-various-operating-systems";
+
+  const message = document.createElement('div');
+  message.classList.add("message")
+  message.textContent = "It seems like you prefer reduced motion. You can adjust this setting in your device's accessibility settings.";
+  message.appendChild(settingsLink);
+
+  const secondChild = document.body.children[0];
+  document.body.insertBefore(message, secondChild.nextSibling);
+} else {
+  alert('User does not prefer reduced motion');
+}
+
+
 function addAnimationToAllElements(animationName = "") {
-  if(animationName !== ""){
-    if(animationName == "snowing"){
+  if (animationName !== "") {
+    if (animationName == "snowing") {
       allElements.forEach(element => {
         element.classList.add('snowing');
       });
-    }else if(animationName === "drizzle"){
+    } else if (animationName === "drizzle") {
       allElements.forEach(element => {
         element.classList.add('drizzle');
       });
-    } else if(animationName === "rainy"){
+    } else if (animationName === "rainy") {
       allElements.forEach(element => {
         element.classList.add('rainy');
       });
-    } else if(animationName === "misty"){
+    } else if (animationName === "misty") {
       allElements.forEach(element => {
         element.classList.add('misty');
       });
-    } else if(animationName === "clear-day"){
+    } else if (animationName === "clear-day") {
       allElements.forEach(element => {
         element.classList.add('clear-day');
       });
-    } else if(animationName === "cloudy"){
+    } else if (animationName === "cloudy") {
       allElements.forEach(element => {
         element.classList.add('cloudy');
       });
@@ -57,7 +79,7 @@ function addAnimationToAllElements(animationName = "") {
 }
 
 function removeAnimationFromAllElements(animationName = "") {
-  if(animationName !== ""){
+  if (animationName !== "") {
     allElements.forEach(element => {
       element.classList.remove(animationName);
     });
@@ -68,17 +90,19 @@ myInputSearchButton.addEventListener('click', () => {
   let cityEntered = myInputTextField.value;
   let selectedDate = dateInput.value;
   console.log(selectedDate);
-  updateInfo(cityEntered, selectedDate);
+  updateInfo(cityEntered, selectedDate, isPreferedReduced);
 })
 
-async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0]) {
+async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false) {
   
-  if(audio){
+  if (audio) {
     audio.pause();
   }
-
-  if(animationName){
-    removeAnimationFromAllElements(animationName);
+  
+  if(!areAnimationsAllowed){
+    if (animationName) {
+      removeAnimationFromAllElements(animationName);
+    }
   }
 
   if (myInputTextField.value.length === 0) {
@@ -104,24 +128,23 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
     return;
   }
-
+  
   console.log(data);
   console.log("--------------------------");
   console.log(responseData);
   
   // precip_mm
-  let barChartData = responseData.forecast.forecastday[0].hour;
+  let chartData = responseData.forecast.forecastday[0].hour;
   let objToSend = [];
-  for (let item of barChartData) {
+  for (let item of chartData) {
     objToSend.push(item.precip_mm);
   }
 
   //Temperatures
-  let lineChartsForTemperaturesData = responseData.forecast.forecastday[0].hour;
   let lineChartTempsInC = [];
   let lineChartTempsInF = [];
-  
-  for (let item of lineChartsForTemperaturesData) {
+
+  for (let item of chartData) {
     lineChartTempsInC.push(item.temp_c);
     lineChartTempsInF.push(item.temp_f);
   }
@@ -130,11 +153,10 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     "temp_f": lineChartTempsInF,
   };
   // Wind speed in kph and mph
-  let lineChartDataForWind = responseData.forecast.forecastday[0].hour;
   let lineChartWindInKph = [];
   let lineChartWindInMph = [];
   
-  for (let item of lineChartsForTemperaturesData) {
+  for (let item of chartData) {
     lineChartWindInMph.push(item.wind_mph);
     lineChartWindInKph.push(item.wind_kph);
   }
@@ -156,46 +178,134 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   createChart(objToSend, objPackaged, objPackagedWind);
   addUVIndexInfo(responseData);
   
-  let feelsLikeTemp = data.main.feels_like;
-  
-  feelsLikeTemperatureParagraph.textContent = `Feels like: ${Math.round(feelsLikeTemp)} °C`;
-  degreesText.textContent = Math.round(data.main.temp) + "°C";
-  cityText.textContent = data.name;
-  humidityPercentage.textContent = data.main.humidity + "%";
-  windSpeed.textContent = data.wind.speed + "km/h";
-  
-  let typeOfWeather = data.weather[0].main;
-  let audioToPlay = "";
-
-  if (typeOfWeather === "Clouds") {
-    imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
-    audioToPlay = "./sounds/light-drizzle.wav"
-    animationName = "cloudy";
-  } else if (typeOfWeather === "Clear") {
-    imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
-    audioToPlay = "./sounds/birds.mp3"
-    animationName = "clear-day"
-  } else if (typeOfWeather === "Rain") {
-    imageOfWeather.src = "./images/pictures for weather app/rain.svg";
-    audioToPlay = "./sounds/light-rain.mp3"
-    animationName = "rainy";
-  } else if (typeOfWeather === "Drizzle") {
-    imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
-    audioToPlay = "./sounds/light-drizzle.wav"
-    animationName = "drizzle"
-  } else if (typeOfWeather === "Mist") {
-    imageOfWeather.src = "./images/pictures for weather app/mist.svg";
-    audioToPlay = "./sounds/light-rain-mist.wav"
-    animationName = "misty";
-  } else if (typeOfWeather === "Snow") {
-    imageOfWeather.src = "./images/pictures for weather app/snow.svg";
-    audioToPlay = "./sounds/snowy_forest-snowfall.wav"
-    animationName = "snowing"
-  } else {
-    alert("No weather icon available for the usage of the API!");
+  function getLastEntry(array, searchHour) {
+    let lastEntry = null;
+    
+    for (let entry = 0; entry < array.length; entry++) {
+      if (searchHour === 0) {
+        lastEntry = array[entry];
+        break; // Exit the loop once we've found the entry
+      }
+      searchHour--;
+    }
+    
+    return lastEntry;
   }
   
-  if(animationName !== ""){
+  
+  let hourToSearch = new Date().getHours();
+  const lastEntry = getLastEntry(chartData, hourToSearch);
+  console.log(lastEntry);
+
+  feelsLikeTemperatureParagraph.textContent = `Feels like: ${Math.round(lastEntry.feelslike_c
+    )} °C`;
+    degreesText.textContent = lastEntry.temp_c + "°C";
+    cityText.textContent = data.name;
+    humidityPercentage.textContent = lastEntry.humidity + "%";
+    windSpeed.textContent = lastEntry.wind_kph + "km/h";
+    
+    let typeOfWeather = lastEntry.condition.text;
+    typeOfWeatherParag.textContent += typeOfWeather;
+  let audioToPlay = "";
+
+  switch (typeOfWeather) {
+    case "Cloudy":
+    case "Overcast":
+    case "Partly cloudy":
+        imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
+        audioToPlay = "./sounds/light-drizzle.wav";
+        animationName = "cloudy";
+        break;
+    case "Clear":
+    case "Sunny":
+        imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
+        audioToPlay = "./sounds/birds.mp3";
+        animationName = "clear-day";
+        break;
+    case "Heavy Rain":
+    case "Heavy rain at times":
+    case "Moderate or heavy rain shower":
+    case "Torrential rain shower":
+    case "Thundery outbreaks possible":
+        imageOfWeather.src = "./images/pictures for weather app/rain.svg";
+        audioToPlay = "./sounds/light-rain.mp3";
+        animationName = "rainy";
+        break;
+    case "Patchy freezing drizzle possible":
+    case "Patchy rain possible":
+    case "Patchy light rain with thunder":
+    case "Moderate or heavy rain with thunder":
+    case "Light rain shower":
+    case "Patchy light drizzle":
+    case "Light drizzle":
+    case "Freezing drizzle":
+    case "Heavy freezing drizzle":
+    case "Patchy light rain":
+    case "Light rain":
+    case "Moderate or heavy freezing rain":
+    case "Light freezing rain":
+    case "Moderate rain at times":
+    case "Moderate rain":
+        imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
+        audioToPlay = "./sounds/light-drizzle.wav";
+        animationName = "drizzle";
+        break;
+    case "Mist":
+    case "Freezing fog":
+    case "Fog":
+    case "Haze":
+        imageOfWeather.src = "./images/pictures for weather app/mist.svg";
+        audioToPlay = "./sounds/light-rain-mist.wav";
+        animationName = "misty";
+        break;
+    case "Light sleet showers":
+    case "Moderate or heavy snow with thunder":
+    case "Patchy light snow with thunder":
+    case "Moderate or heavy showers of ice pellets":
+    case "Light showers of ice pellets":
+    case "Moderate or heavy snow showers":
+    case "Patchy snow possible":
+    case "Patchy light snow with thunder":
+    case "Moderate or heavy snow with thunder":
+    case "Light sleet showers":
+    case "Moderate or heavy sleet showers":
+    case "Light snow showers":
+    case "Moderate or heavy snow showers":
+    case "Light sleet":
+    case "Moderate or heavy sleet":
+    case "Patchy light snow":
+    case "Light snow":
+    case "Patchy moderate snow":
+    case "Moderate snow":
+    case "Patchy heavy snow":
+    case "Heavy snow":
+    case "Blowing snow":
+    case "Blizzard":
+    case "Patchy sleet possible":
+    case "Freezing Rain":
+    case "Heavy snow":
+        imageOfWeather.src = "./images/pictures for weather app/snow.svg";
+        animationName = "snowing";
+        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+        break;
+    case "Ice pellets":
+    case "Light showers of ice pellets":
+    case "Moderate or heavy showers of ice pellets":
+    case "":
+        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+        imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
+        // No animation here
+        break;
+    case "Tornado":
+        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+        imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
+        //no animation here
+        break;
+    default:
+        alert("No weather icon available for the usage of the API!");
+}
+
+  if (animationName !== "" && !areAnimationsAllowed) {
     addAnimationToAllElements(animationName);
   }
 

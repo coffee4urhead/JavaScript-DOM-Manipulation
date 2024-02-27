@@ -118,18 +118,8 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   }
 
   let response = await fetch(`/apiResp/${city}/${selectedDate}`);
-  let someData = await response.json();
+  let responseData = await response.json();
 
-  let data = someData.weatherData;
-  let responseData = someData.secondWeatherData;
-
-  if (data.cod === "404" || data.cod === "400") {
-    alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
-    return;
-  }
-
-  console.log(data);
-  console.log("--------------------------");
   console.log(responseData);
 
   // precip_mm
@@ -199,7 +189,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   feelsLikeTemperatureParagraph.textContent = `Feels like: ${Math.round(lastEntry.feelslike_c
   )} °C`;
   degreesText.textContent = lastEntry.temp_c + "°C";
-  cityText.textContent = data.name;
+  cityText.textContent = city;
   humidityPercentage.textContent = lastEntry.humidity + "%";
   windSpeed.textContent = lastEntry.wind_kph + "km/h";
 

@@ -14,17 +14,12 @@ app.use(express.static('views'));
 app.get('/apiResp/:city/:date', async (req, res) => {
     try {
         const { city, date } = req.params;
-        const apiKey = process.env.API_KEY;
-        const metricSystemApplied = "&units=metric";
 
-        const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${metricSystemApplied}`);
-        const weatherData = await weatherResponse.json();
-
-        const secondAPIKey = process.env.SECOND_API;
+        const secondAPIKey = process.env.API_KEY;
         const secondWeatherResponse = await fetch(`https://api.weatherapi.com/v1/history.json?key=${secondAPIKey}&q=${city}&dt=${date}`);
         const secondWeatherData = await secondWeatherResponse.json();
 
-        res.json({ weatherData, secondWeatherData });
+        res.json(secondWeatherData);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: "Internal Server Error" });

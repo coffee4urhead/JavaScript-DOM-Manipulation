@@ -89,20 +89,19 @@ function removeAnimationFromAllElements(animationName = "") {
 myInputSearchButton.addEventListener('click', () => {
   let cityEntered = myInputTextField.value;
   let selectedDate = dateInput.value;
+  let isSoundEnabled = toggleFlicker();
   console.log(selectedDate);
-  updateInfo(cityEntered, selectedDate, isPreferedReduced);
+  updateInfo(cityEntered, selectedDate, isPreferedReduced, isSoundEnabled);
 })
 
-async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false) {
-  
-  if (audio) {
+async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false, isSoundOn = false) {
+
+  if (!isSoundOn && audio) {
     audio.pause();
   }
-  
-  if(!areAnimationsAllowed){
-    if (animationName) {
-      removeAnimationFromAllElements(animationName);
-    }
+
+  if (!areAnimationsAllowed && animationName) {
+    removeAnimationFromAllElements(animationName);
   }
 
   if (myInputTextField.value.length === 0) {
@@ -111,28 +110,28 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   }
   else {
     let regexForSymbolCheck = /[./><;:'@[{}\]\#\~\+\=\_\-\¬\`\!\"\£\$\%\^\&\*0-9]+/gm;
-    
+
     if (regexForSymbolCheck.test(city)) {
       alert("The city name cannot contain symbols nor numbers");
       return;
     }
   }
-  
+
   let response = await fetch(`/apiResp/${city}/${selectedDate}`);
   let someData = await response.json();
-  
+
   let data = someData.weatherData;
   let responseData = someData.secondWeatherData;
-  
+
   if (data.cod === "404" || data.cod === "400") {
     alert("Cannot find the city you are looking for. Maybe you entered a city that didn`t exist. Try using a real city name!");
     return;
   }
-  
+
   console.log(data);
   console.log("--------------------------");
   console.log(responseData);
-  
+
   // precip_mm
   let chartData = responseData.forecast.forecastday[0].hour;
   let objToSend = [];
@@ -155,7 +154,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   // Wind speed in kph and mph
   let lineChartWindInKph = [];
   let lineChartWindInMph = [];
-  
+
   for (let item of chartData) {
     lineChartWindInMph.push(item.wind_mph);
     lineChartWindInKph.push(item.wind_kph);
@@ -164,23 +163,23 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     "wind_mph": lineChartWindInMph,
     "wind_kph": lineChartWindInKph,
   };
-  
+
   //Moon data
   let astroData = responseData.forecast.forecastday[0].astro;
   //
-  
+
   //Chances of rain information
   let chancesData = responseData.forecast.forecastday[0].day;
   //
-  
+
   updateChancesInformation(chancesData);
   addAstroInformation(astroData);
   createChart(objToSend, objPackaged, objPackagedWind);
   addUVIndexInfo(responseData);
-  
+
   function getLastEntry(array, searchHour) {
     let lastEntry = null;
-    
+
     for (let entry = 0; entry < array.length; entry++) {
       if (searchHour === 0) {
         lastEntry = array[entry];
@@ -188,49 +187,49 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
       }
       searchHour--;
     }
-    
+
     return lastEntry;
   }
-  
-  
+
+
   let hourToSearch = new Date().getHours();
   const lastEntry = getLastEntry(chartData, hourToSearch);
   console.log(lastEntry);
 
   feelsLikeTemperatureParagraph.textContent = `Feels like: ${Math.round(lastEntry.feelslike_c
-    )} °C`;
-    degreesText.textContent = lastEntry.temp_c + "°C";
-    cityText.textContent = data.name;
-    humidityPercentage.textContent = lastEntry.humidity + "%";
-    windSpeed.textContent = lastEntry.wind_kph + "km/h";
-    
-    let typeOfWeather = lastEntry.condition.text;
-    typeOfWeatherParag.textContent += typeOfWeather;
+  )} °C`;
+  degreesText.textContent = lastEntry.temp_c + "°C";
+  cityText.textContent = data.name;
+  humidityPercentage.textContent = lastEntry.humidity + "%";
+  windSpeed.textContent = lastEntry.wind_kph + "km/h";
+
+  let typeOfWeather = lastEntry.condition.text;
+  typeOfWeatherParag.textContent += typeOfWeather;
   let audioToPlay = "";
 
   switch (typeOfWeather) {
     case "Cloudy":
     case "Overcast":
     case "Partly cloudy":
-        imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
-        audioToPlay = "./sounds/light-drizzle.wav";
-        animationName = "cloudy";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/cloudy.svg";
+      audioToPlay = "./sounds/light-drizzle.wav";
+      animationName = "cloudy";
+      break;
     case "Clear":
     case "Sunny":
-        imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
-        audioToPlay = "./sounds/birds.mp3";
-        animationName = "clear-day";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/clear-day.svg";
+      audioToPlay = "./sounds/birds.mp3";
+      animationName = "clear-day";
+      break;
     case "Heavy Rain":
     case "Heavy rain at times":
     case "Moderate or heavy rain shower":
     case "Torrential rain shower":
     case "Thundery outbreaks possible":
-        imageOfWeather.src = "./images/pictures for weather app/rain.svg";
-        audioToPlay = "./sounds/light-rain.mp3";
-        animationName = "rainy";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/rain.svg";
+      audioToPlay = "./sounds/light-rain.mp3";
+      animationName = "rainy";
+      break;
     case "Patchy freezing drizzle possible":
     case "Patchy rain possible":
     case "Patchy light rain with thunder":
@@ -246,18 +245,18 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     case "Light freezing rain":
     case "Moderate rain at times":
     case "Moderate rain":
-        imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
-        audioToPlay = "./sounds/light-drizzle.wav";
-        animationName = "drizzle";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/drizzle.svg";
+      audioToPlay = "./sounds/light-drizzle.wav";
+      animationName = "drizzle";
+      break;
     case "Mist":
     case "Freezing fog":
     case "Fog":
     case "Haze":
-        imageOfWeather.src = "./images/pictures for weather app/mist.svg";
-        audioToPlay = "./sounds/light-rain-mist.wav";
-        animationName = "misty";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/mist.svg";
+      audioToPlay = "./sounds/light-rain-mist.wav";
+      animationName = "misty";
+      break;
     case "Light sleet showers":
     case "Moderate or heavy snow with thunder":
     case "Patchy light snow with thunder":
@@ -284,34 +283,36 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     case "Patchy sleet possible":
     case "Freezing Rain":
     case "Heavy snow":
-        imageOfWeather.src = "./images/pictures for weather app/snow.svg";
-        animationName = "snowing";
-        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
-        break;
+      imageOfWeather.src = "./images/pictures for weather app/snow.svg";
+      animationName = "snowing";
+      audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+      break;
     case "Ice pellets":
     case "Light showers of ice pellets":
     case "Moderate or heavy showers of ice pellets":
     case "":
-        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
-        imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
-        // No animation here
-        break;
+      audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+      imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
+      // No animation here
+      break;
     case "Tornado":
-        audioToPlay = "./sounds/snowy_forest-snowfall.wav";
-        imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
-        //no animation here
-        break;
+      audioToPlay = "./sounds/snowy_forest-snowfall.wav";
+      imageOfWeather.src = "./images/pictures for weather app/icons8-light-snow.gif";
+      //no animation here
+      break;
     default:
-        alert("No weather icon available for the usage of the API!");
-}
+      alert("No weather icon available for the usage of the API!");
+  }
 
   if (animationName !== "" && !areAnimationsAllowed) {
     addAnimationToAllElements(animationName);
   }
 
-  audio = new Audio(audioToPlay);
-  audio.loop = true;
-  audio.play();
+  if(!isSoundOn){
+    audio = new Audio(audioToPlay);
+    audio.loop = true;
+    audio.play();
+  }
 }
 
 
@@ -624,5 +625,18 @@ function updateChancesInformation(chancesData) {
         currentChild.textContent = "Will it snow: " + "no"
       }
     }
+  }
+}
+
+const flickerElement = document.getElementById('flicker');
+flickerElement.addEventListener('click', toggleFlicker);
+
+function toggleFlicker() {
+  if (flickerElement.classList.contains('flicker-on')) {
+    flickerElement.classList.toggle('flicker-on');
+    return true;
+  } else {
+    flickerElement.classList.toggle('flicker-off');
+    return false;
   }
 }

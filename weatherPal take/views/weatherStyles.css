@@ -84,9 +84,11 @@ canvas.myChart {
 button.search-btn {
     border-radius: 50%;
 }
+
 input#inp-text {
     text-align: center;
 }
+
 button.search-btn img {
     width: 2vw;
     height: 4vh;
@@ -95,9 +97,11 @@ button.search-btn img {
     border-radius: 10px;
     margin-top: 10px;
 }
+
 div.search-section {
     margin-top: 12px;
 }
+
 /* Wrapper */
 .wrapper {
     margin: 20px auto;
@@ -115,18 +119,21 @@ div.search-section {
     outline-color: rgb(255, 255, 255);
     outline-width: 3px;
 }
+
 img.img-src {
     width: 10rem;
     height: 10rem;
     position: relative;
     margin: 20px auto;
 }
+
 /* Input */
 input#dateInput {
     border-radius: 12px;
     width: 6rem;
     height: 3rem;
 }
+
 input#inp-text {
     width: 80%;
     height: 40px;
@@ -168,15 +175,18 @@ p {
 /* Humidity and Wind Content */
 .hum-cont p,
 .wind-cont p {
-    font-size: 14px; /* Adjusted font-size for responsiveness */
+    font-size: 14px;
+    /* Adjusted font-size for responsiveness */
     margin: 0;
 }
 
 /* Responsive Square Shape */
 @media screen and (max-width: 768px) {
     .wrapper {
-        width: 90%; /* Adjusted width for smaller screens */
-        padding-bottom: 90%; /* Set padding-bottom to create a square shape */
+        width: 90%;
+        /* Adjusted width for smaller screens */
+        padding-bottom: 90%;
+        /* Set padding-bottom to create a square shape */
     }
 }
 
@@ -443,6 +453,7 @@ div#chances-section {
         max-width: 90%;
     }
 }
+
 #warning-message {
     background-color: #ffcccc;
     color: #990000;
@@ -450,4 +461,57 @@ div#chances-section {
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+}
+
+.flicker-container {
+    width: 60px;
+    height: 30px;
+    border-radius: 12px;
+    position: relative;
+    background-color: black;
+    margin-top: 0;
+}
+div#sound-settings {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes flicker-on {
+    0% {
+        left: 15px;
+    }
+
+    100% {
+        left: 45px;
+    }
+}
+
+@keyframes flicker-off {
+    0% {
+        left: 45px;
+    }
+
+    100% {
+        left: 15px;
+    }
+}
+
+.flicker-on .dot {
+    animation: flicker-on 1s forwards;
+}
+
+.flicker-off .dot {
+    animation: flicker-off 1s forwards;
 }

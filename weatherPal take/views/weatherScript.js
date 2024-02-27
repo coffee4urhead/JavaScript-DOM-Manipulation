@@ -203,8 +203,8 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
   humidityPercentage.textContent = lastEntry.humidity + "%";
   windSpeed.textContent = lastEntry.wind_kph + "km/h";
 
-  let typeOfWeather = lastEntry.condition.text;
-  typeOfWeatherParag.textContent += typeOfWeather;
+  let typeOfWeather = responseData.forecast.forecastday[0].day.condition.text;
+  typeOfWeatherParag.textContent = "Type of weather: " + typeOfWeather;
   let audioToPlay = "";
 
   switch (typeOfWeather) {

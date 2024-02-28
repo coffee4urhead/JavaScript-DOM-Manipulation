@@ -191,7 +191,8 @@ div.wrap-section {
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 12px;
-    max-width: calc(45% - 12px);
+    width: calc(55% - 20px);
+    flex-shrink: 0;
 }
 
 div.wrap-section p {
@@ -205,17 +206,20 @@ div.wrap-section>h2 {
 }
 
 div.city-gallery {
-    width: calc(45% - 12px);
-    height: 210px;
-    background-color: #92a8b3;
+    width: calc(45% - 20px);
+    height: auto;
+    background-color: #deecaa;
     border-radius: 12px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 400px));
-    align-items: center;
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    grid-auto-flow: column;
-    gap: 30px;
-    margin-top: 70px;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 div.city-gallery img {
@@ -223,12 +227,19 @@ div.city-gallery img {
     height: 180px;
 }
 
+@media (max-width: 768px) {
+    div.wrap-section,
+    div.city-gallery {
+        width: 100%;
+    }
+}
 /*Project info incorporated (Final page row)*/
-section#inc-info {
-    height: 30rem;
+footer#inc-info {
+    height: auto;
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -245,11 +256,12 @@ div.project-info {
         "wdth" 100;
     font-size: 19px;
     border-radius: 12px;
+    margin: 10px 10px 10px 10px;
 }
 
 div.list-key {
     width: 80%;
-    height: 9rem;
+    height: auto;
     margin: auto;
     border-radius: 12px;
     background-color: #89d1f5;
@@ -277,31 +289,6 @@ div.project-info p {
     opacity: 1;
     transform: rotate(0deg);
     filter: blur(0);
-}
-
-.hidden-translator {
-    opacity: 0.1;
-    filter: blur(5px);
-    transform: translateX(-100%);
-    transition: all 1s;
-}
-
-.show-translator {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-}
-
-main.main-cards-cont:nth-child(1) {
-    transition-delay: 200ms;
-}
-
-main.main-cards-cont:nth-child(2) {
-    transition-delay: 400ms;
-}
-
-main.main-cards-cont:nth-child(3) {
-    transition-delay: 600ms;
 }
 
 #warning-message {

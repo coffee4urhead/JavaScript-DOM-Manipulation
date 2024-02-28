@@ -45,7 +45,9 @@ if (prefersReducedMotion) {
 }
 
 const flickerElement = document.getElementById('flicker');
-flickerElement.addEventListener('click', toggleFlicker);
+flickerElement.addEventListener('click', function() {
+  toggleFlicker(audio)
+});
 
 function addAnimationToAllElements(animationName = "") {
   if (animationName !== "") {
@@ -93,10 +95,6 @@ myInputSearchButton.addEventListener('click', () => {
 })
 
 async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false, flickerElement) {
-
-  if (flickerElement.classList.contains('flicker-off') && audio) {
-    audio.pause();
-  }
 
   if (!areAnimationsAllowed && animationName) {
     removeAnimationFromAllElements(animationName);
@@ -296,11 +294,8 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     addAnimationToAllElements(animationName);
   }
 
-  if(flickerElement.classList.contains('flicker-on')){
     audio = new Audio(audioToPlay);
     audio.loop = true;
-    audio.play();
-  }
 }
 
 
@@ -615,14 +610,21 @@ function updateChancesInformation(chancesData) {
     }
   }
 }
-
-
-function toggleFlicker() {
+function toggleFlicker(audioExp = null) {
   if (flickerElement.classList.contains('flicker-on')) {
-    flickerElement.classList.remove('flicker-on');
-    flickerElement.classList.add('flicker-off');
+      flickerElement.classList.remove('flicker-on');
+      flickerElement.classList.add('flicker-off');
+      
+      if (audioExp !== null) {
+          audioExp.pause();
+      }
   } else {
-    flickerElement.classList.remove('flicker-off');
-    flickerElement.classList.add('flicker-on');
+      flickerElement.classList.remove('flicker-off');
+      flickerElement.classList.add('flicker-on');
+      
+      if (audioExp !== null) {
+          audioExp.play();
+      }
   }
 }
+

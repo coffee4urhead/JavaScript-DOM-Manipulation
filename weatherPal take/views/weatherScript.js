@@ -31,7 +31,6 @@ let isPreferedReduced = false;
 
 if (prefersReducedMotion) {
   isPreferedReduced = true;
-  alert('User prefers reduced motion');
   const settingsLink = document.createElement('a');
   settingsLink.textContent = "Go to Accessibility Settings";
   settingsLink.href = "https://scholar.harvard.edu/ccwilcox/blog/how-reduce-motion-various-operating-systems";
@@ -43,8 +42,6 @@ if (prefersReducedMotion) {
 
   const secondChild = document.body.children[0];
   document.body.insertBefore(message, secondChild.nextSibling);
-} else {
-  alert('User does not prefer reduced motion');
 }
 
 

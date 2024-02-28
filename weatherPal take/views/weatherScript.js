@@ -34,16 +34,18 @@ if (prefersReducedMotion) {
   const settingsLink = document.createElement('a');
   settingsLink.textContent = "Go to Accessibility Settings";
   settingsLink.href = "https://scholar.harvard.edu/ccwilcox/blog/how-reduce-motion-various-operating-systems";
-
+  
   const message = document.createElement('div');
   message.classList.add("message")
   message.textContent = "It seems like you prefer reduced motion. You can adjust this setting in your device's accessibility settings.";
   message.appendChild(settingsLink);
-
+  
   const secondChild = document.body.children[0];
   document.body.insertBefore(message, secondChild.nextSibling);
 }
 
+const flickerElement = document.getElementById('flicker');
+flickerElement.addEventListener('click', toggleFlicker);
 
 function addAnimationToAllElements(animationName = "") {
   if (animationName !== "") {
@@ -86,14 +88,13 @@ function removeAnimationFromAllElements(animationName = "") {
 myInputSearchButton.addEventListener('click', () => {
   let cityEntered = myInputTextField.value;
   let selectedDate = dateInput.value;
-  let isSoundEnabled = toggleFlicker();
   console.log(selectedDate);
-  updateInfo(cityEntered, selectedDate, isPreferedReduced, isSoundEnabled);
+  updateInfo(cityEntered, selectedDate, isPreferedReduced, flickerElement);
 })
 
-async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false, isSoundOn = false) {
+async function updateInfo(city = null, selectedDate = new Date().toISOString().split("T")[0], areAnimationsAllowed = false, flickerElement) {
 
-  if (!isSoundOn && audio) {
+  if (flickerElement.classList.contains('flicker-off') && audio) {
     audio.pause();
   }
 
@@ -295,7 +296,7 @@ async function updateInfo(city = null, selectedDate = new Date().toISOString().s
     addAnimationToAllElements(animationName);
   }
 
-  if(!isSoundOn){
+  if(flickerElement.classList.contains('flicker-on')){
     audio = new Audio(audioToPlay);
     audio.loop = true;
     audio.play();
@@ -615,15 +616,13 @@ function updateChancesInformation(chancesData) {
   }
 }
 
-const flickerElement = document.getElementById('flicker');
-flickerElement.addEventListener('click', toggleFlicker);
 
 function toggleFlicker() {
   if (flickerElement.classList.contains('flicker-on')) {
-    flickerElement.classList.toggle('flicker-on');
-    return true;
+    flickerElement.classList.remove('flicker-on');
+    flickerElement.classList.add('flicker-off');
   } else {
-    flickerElement.classList.toggle('flicker-off');
-    return false;
+    flickerElement.classList.remove('flicker-off');
+    flickerElement.classList.add('flicker-on');
   }
 }

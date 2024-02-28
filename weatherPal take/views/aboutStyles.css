@@ -5,6 +5,21 @@
     box-sizing: border-box;
 }
 
+.message {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transform: translateZ(20px);
+    max-width: 80%;
+    text-align: center;
+    margin: 20px auto;
+}
+.message a {
+    text-decoration: none;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #F6EEE0;
@@ -41,6 +56,7 @@ nav {
     font-variation-settings:
         "wdth" 100;
 }
+
 nav a {
     color: white;
     text-align: center;
@@ -56,6 +72,7 @@ nav a {
         "wdth" 100;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
+
 nav a:hover {
     background-color: #918e8e;
     color: black;
@@ -178,5 +195,6 @@ footer {
 .grid-item p {
     padding: 20px;
     text-align: left;
-    margin-top: 10px; /* Reduce the margin-top to avoid hiding the text */
+    margin-top: 10px;
+    /* Reduce the margin-top to avoid hiding the text */
 }

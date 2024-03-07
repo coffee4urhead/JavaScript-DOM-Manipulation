@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homeStyles.css" />
+    <link rel="stylesheet" href="./homeStylesForNews.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -111,7 +112,18 @@
             <img src="./images/pictures for weather app/snow.svg" alt="snowing icon" class="hidden-rotator" />
         </div>
     </section>
-
+    
+    
+    <div class="container">
+        <div class="search-container">
+            <input id="search-news-textField" type="text" placeholder="Search articles">
+            <button id="submit-topic-btn">Submit topic information</button>
+        </div>
+        <div class="card" onclick="viewArticle()">
+            <h2 class="title">Title of the Article</h2>
+            <p class="description">Description of the article goes here...</p>
+        </div>
+    </div>
 
     <footer id="inc-info" class="service-descr">
         <div class="project-info hidden-rotator">
@@ -165,6 +177,13 @@
             #92a8b3 grey color
             #094664 dark blue col
             <>
+        -->
+        <!--
+            Implement the news search by:
+            Keyword or phrase. Eg: find all articles containing the word 'Microsoft'.
+            Date published. Eg: find all articles published yesterday.
+            Source domain name. Eg: find all articles published on thenextweb.com.
+            Language. Eg: find all articles written in English.
         -->
     </footer>
 

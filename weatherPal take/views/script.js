@@ -45,3 +45,27 @@ if (prefersReducedMotion) {
 //     })
 // })
 // hiddenCardsTwo.forEach(card => observer.observe(card))
+const inputNewsText = document.querySelector('#search-news-textField');
+const submitTopicBtn = document.querySelector('#submit-topic-btn');
+
+// returned info representation ================
+let titlePara = document.querySelector('.title');
+let descriptionPara = document.querySelector('.description');
+// ================ ================ ================ ================
+
+submitTopicBtn.addEventListener('click', function() {
+    fetchNewsData(inputNewsText.value);
+});
+
+async function fetchNewsData(topic) {
+    let fetchNewsData = await fetch(`/newsResp/${topic}`);
+    const receivedData = await fetchNewsData.json();
+    console.log(receivedData);
+    
+    titlePara.textContent += receivedData.articles[99].title
+    descriptionPara.textContent += receivedData.articles[99].description
+}
+
+function viewArticle() {
+    window.location.href = "article.html";
+}

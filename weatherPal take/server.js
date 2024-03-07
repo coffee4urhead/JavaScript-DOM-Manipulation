@@ -26,6 +26,26 @@ app.get('/apiResp/:city/:date', async (req, res) => {
     }
 });
 
+app.get('/newsResp/:topic', async (req, res) => {
+    try {
+        const { topic } = req.params;
+
+        const newsApiKey = process.env.NEWS_API_KEY;
+        let url = 'https://newsapi.org/v2/everything?' +
+          `q=${topic}&` +
+          `language=en&` +
+          'sortBy=popularity&' +
+          `apiKey=${newsApiKey}`; 
+        const fetchedData = await fetch(url);
+        const responseNews = await fetchedData.json();
+        res.json(responseNews);
+
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`App listening at port ${PORT}`);
 });

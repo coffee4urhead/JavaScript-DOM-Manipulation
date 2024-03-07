@@ -4,12 +4,14 @@ dotenv.config();
 
 const fetch = require('cross-fetch');
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static('views'));
+app.use(cors());
 
 app.get('/apiResp/:city/:date', async (req, res) => {
     try {

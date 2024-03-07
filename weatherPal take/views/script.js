@@ -61,9 +61,10 @@ async function fetchNewsData(topic) {
     let fetchNewsData = await fetch(`/newsResp/${topic}`);
     const receivedData = await fetchNewsData.json();
     console.log(receivedData);
-    
-    titlePara.textContent += receivedData.articles[99].title
-    descriptionPara.textContent += receivedData.articles[99].description
+
+    let articlesArray = receivedData.articles;
+    titlePara.textContent = articlesArray[articlesArray.length - 1].title
+    descriptionPara.textContent = articlesArray[articlesArray.length - 1].description
 }
 
 function viewArticle() {

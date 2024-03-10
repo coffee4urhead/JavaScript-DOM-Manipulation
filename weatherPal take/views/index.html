@@ -114,10 +114,22 @@
     </section>
     
     
+    <div class="search-container" tabindex="6">
+        <input id="search-news-textField" type="text" tabindex="6" placeholder="Search articles" aria-label="Search articles">
+        <button id="submit-topic-btn" tabindex="6" aria-label="Submit topic information">Submit</button>
+    </div>
     <div class="container" tabindex="6" aria-label="News Section" role="region">
-        <div class="search-container" tabindex="6">
-            <input id="search-news-textField" type="text" tabindex="6" placeholder="Search articles" aria-label="Search articles">
-            <button id="submit-topic-btn" tabindex="6" aria-label="Submit topic information">Submit</button>
+        <div class="card-news" onclick="viewArticle()" tabindex="6" role="button" aria-label="View Article">
+            <h2 class="title" tabindex="6">Title of the Article</h2>
+            <p class="description" tabindex="6">Description of the article goes here...</p>
+        </div>
+        <div class="card-news" onclick="viewArticle()" tabindex="6" role="button" aria-label="View Article">
+            <h2 class="title" tabindex="6">Title of the Article</h2>
+            <p class="description" tabindex="6">Description of the article goes here...</p>
+        </div>
+        <div class="card-news" onclick="viewArticle()" tabindex="6" role="button" aria-label="View Article">
+            <h2 class="title" tabindex="6">Title of the Article</h2>
+            <p class="description" tabindex="6">Description of the article goes here...</p>
         </div>
         <div class="card-news" onclick="viewArticle()" tabindex="6" role="button" aria-label="View Article">
             <h2 class="title" tabindex="6">Title of the Article</h2>
@@ -187,6 +199,29 @@
             Language. Eg: find all articles written in English.
         -->
     </footer>
+    <div class="scroller">
+        <ul class="tag-list scroller__inner">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>C#</li>
+            <li>C++</li>
+            <li>R</li>
+            <li>SASS</li>
+            <li>SQL</li>
+        </ul>
+
+        <ul class="tag-list scroller__inner" data-direction="right">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>C#</li>
+            <li>C++</li>
+            <li>R</li>
+            <li>SASS</li>
+            <li>SQL</li>
+        </ul>
+    </div>
 
     <script src="script.js"></script>
 </body>

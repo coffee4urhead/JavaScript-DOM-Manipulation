@@ -13,63 +13,63 @@
 
 <body>
 
-    <header>
-        <h1>MyWeatherPal Weather Hub</h1>
-        <nav>
-            <img src="./images/websiteLogo.png" class="logo" />
-            <a href="home.html">Home</a>
-            <a href="weather.html">Weather</a>
-            <a href="about.html">About</a>
+    <header tabindex="1" aria-label="The head section of the main functionality of the page containing the link navigations to the other pages">
+        <h1 tabindex="1">MyWeatherPal Weather Hub</h1>
+        <nav tabindex="1">
+            <img src="./images/websiteLogo.png" tabindex="1" class="logo" />
+            <a href="home.html" tabindex="1">Home</a>
+            <a href="weather.html" tabindex="1">Weather</a>
+            <a href="about.html" tabindex="1">About</a>
         </nav>
     </header>
-    <div id="warning-message">
-        <p><strong>Warning:</strong> This page contains sounds and animations that may be discomforting for some users.
+    <div id="warning-message" tabindex="2" aria-label="The section where each individual visitor of the page can modify the behavour of the sounds and animations">
+        <p tabindex="2"><strong>Warning:</strong> This page contains sounds and animations that may be discomforting for some users.
             Please adjust your settings accordingly.</p>
-        <div id="sound-settings">
-            <p>Sound: </p>
+        <div id="sound-settings" tabindex="2">
+            <p tabindex="2">Sound: </p>
 
-            <div id="flicker" class="flicker-container flicker-off">
-                <div class="dot"></div>
+            <div id="flicker" class="flicker-container flicker-off" tabindex="2">
+                <div class="dot" tabindex="2"></div>
             </div>
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" tabindex="3">
         <div class="search-section">
             <input title="For better understanding enter a city in the format: city name, country name" type="text"
-                id="inp-text" placeholder="Enter a valid city name here..." />
-            <form>
-                <label for="dateInput">Select a date:</label>
-                <input type="date" id="dateInput">
+                id="inp-text" tabindex="4" placeholder="Enter a valid city name here..." />
+            <form tabindex="4">
+                <label  tabindex="4" for="dateInput">Select a date:</label>
+                <input tabindex="4" type="date" id="dateInput">
             </form>
-            <button class="search-btn"><img src="./images/pictures for weather app/search.png" /></button>
+            <button tabindex="4" class="search-btn"><img src="./images/pictures for weather app/search.png" /></button>
         </div>
-        <img class="img-src" src="./images/pictures for weather app/clear-day.svg" />
-        <p class="°C">23<sup>o</sup>C</p>
-        <p class="weather-type">Type of weather: </p>
-        <p class="feels-like">Feels like: 24°C</p>
-        <p class="city">New York</p>
+        <img tabindex="5" class="img-src" src="./images/pictures for weather app/clear-day.svg" />
+        <p class="°C" tabindex="5">23<sup>o</sup>C</p>
+        <p class="weather-type" tabindex="5">Type of weather: </p>
+        <p class="feels-like" tabindex="5">Feels like: 24°C</p>
+        <p class="city" tabindex="5">New York</p>
         <div class="info-section-wrap">
-            <div class="humidity-section">
-                <img src="./images/pictures for weather app/humidity.svg" class="humidity-pic pic-form" />
-                <div class="hum-cont">
-                    <p class="hum-percentage" style="margin-bottom: 2px;">45%</p>
-                    <p>Humidity</p>
+            <div class="humidity-section" tabindex="6" aria-label="Section containing the humidity information about the current weather forecast">
+                <img tabindex="6" src="./images/pictures for weather app/humidity.svg" class="humidity-pic pic-form" />
+                <div class="hum-cont" tabindex="6">
+                    <p class="hum-percentage" tabindex="6" style="margin-bottom: 2px;">45%</p>
+                    <p tabindex="6">Humidity</p>
                 </div>
             </div>
-            <div class="wind-section">
-                <img src="./images/pictures for weather app/wind.svg" class="wind-pic pic-form" />
-                <div class="wind-cont">
-                    <p class="wind-speed" style="margin-bottom: 2px;">45 km/h</p>
-                    <p>Wind Speed</p>
+            <div class="wind-section" tabindex="7" aria-label="Section containing the information about the current wind speed in kilometers per hour">
+                <img tabindex="7" src="./images/pictures for weather app/wind.svg" class="wind-pic pic-form" />
+                <div class="wind-cont" tabindex="7">
+                    <p class="wind-speed" tabindex="7" style="margin-bottom: 2px;">45 km/h</p>
+                    <p tabindex="7">Wind Speed</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <h1>Charts results of the search</h1>
+    <h1 tabindex="8">Charts results of the search</h1>
 
-    <div id="canvas-wrapper">
+    <div id="canvas-wrapper" aria-label="A section containg the graphs for the temperatures in fahrenheit and celsius, the graph for the wind speed and precipitation in mm">
     </div>
 
     <div id="data-wrap">

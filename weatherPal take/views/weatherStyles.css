@@ -271,7 +271,7 @@ div.upper {
     transform: rotate(180deg);
 }
 
-div#data-wrap {
+main#data-wrap {
     margin-top: 20px;
     height: auto;
     display: grid;
@@ -284,7 +284,7 @@ div#data-wrap {
     background-color: rgb(244, 226, 191);
 }
 
-div#astro-information {
+article#astro-information {
     margin-top: 20px;
     height: auto;
     background-color: #F5D28E;

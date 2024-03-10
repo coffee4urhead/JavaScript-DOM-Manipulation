@@ -16,7 +16,7 @@
     <header tabindex="1" aria-label="The head section of the main functionality of the page containing the link navigations to the other pages">
         <h1 tabindex="1">MyWeatherPal Weather Hub</h1>
         <nav tabindex="1">
-            <img src="./images/websiteLogo.png" tabindex="1" class="logo" />
+            <img src="./images/websiteLogo.png" tabindex="1" class="logo" alt="website logo that is on white background where the text MyWeatherPal is visible on the bottom of crossed arrows that have all weather types in each crossing section" />
             <a href="home.html" tabindex="1">Home</a>
             <a href="weather.html" tabindex="1">Weather</a>
             <a href="about.html" tabindex="1">About</a>
@@ -28,7 +28,7 @@
         <div id="sound-settings" tabindex="2">
             <p tabindex="2">Sound: </p>
 
-            <div id="flicker" class="flicker-container flicker-off" tabindex="2">
+            <div id="flicker" class="flicker-container flicker-off" tabindex="2" aria-label="Control for adjusting the sound level accordingly">
                 <div class="dot" tabindex="2"></div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <label  tabindex="4" for="dateInput">Select a date:</label>
                 <input tabindex="4" type="date" id="dateInput">
             </form>
-            <button tabindex="4" class="search-btn"><img src="./images/pictures for weather app/search.png" /></button>
+            <button tabindex="4" aria-label="Submit city and country information for processing" class="search-btn"><img src="./images/pictures for weather app/search.png" alt="image that displays a simple search icon" /></button>
         </div>
         <img tabindex="5" class="img-src" src="./images/pictures for weather app/clear-day.svg" />
         <p class="°C" tabindex="5">23<sup>o</sup>C</p>
@@ -72,56 +72,56 @@
     <div id="canvas-wrapper" aria-label="A section containg the graphs for the temperatures in fahrenheit and celsius, the graph for the wind speed and precipitation in mm">
     </div>
 
-    <div id="data-wrap">
-        <h2>UV indexes and air quality</h2>
-        <div id="astro-information">
+    <main id="data-wrap" tabindex="9" aria-label="Section for the main information of the forecast including the moon and sun rise, fall, Illumination, UV index and chances of rain and snowfalls occuring">
+        <h2 tabindex="9">UV indexes and air quality</h2>
+        <article id="astro-information">
             <h2>Moon and sun information</h2>
-            <div id="below-wrapper">
+            <section id="below-wrapper">
 
-                <div id="moon-and-sun">
+                <div id="moon-and-sun" tabindex="9" aria-label="section for the moon and sun information including the Illumination, rise, set and phase">
 
-                    <div id="moon">
-                        <h3>Moon</h3>
-                        <ul id="moon-list">
-                            <li>Illumination: </li>
-                            <li>Moonset time: </li>
-                            <li>Moonrise time: </li>
-                            <li>Moon phase: </li>
+                    <div tabindex="9" id="moon">
+                        <h3 tabindex="9">Moon</h3>
+                        <ul id="moon-list" tabindex="9">
+                            <li tabindex="9">Illumination: </li>
+                            <li tabindex="9">Moonset time: </li>
+                            <li tabindex="9">Moonrise time: </li>
+                            <li tabindex="9">Moon phase: </li>
                         </ul>
-                        <div class="pic-container">
-                            <img src="./images/Moon phases/First-quarter.jpg" id="phase" alt="phase of the moon image">
+                        <div class="pic-container" tabindex="9" aria-label="Section where the image is situated showcasing the moon phase">
+                            <img src="./images/Moon phases/First-quarter.jpg" tabindex="9" id="phase" alt="phase of the moon image">
                         </div>
                     </div>
 
-                    <div id="sun">
-                        <h3>Sun</h3>
-                        <ul id="sun-list">
-                            <li>Sunset time: </li>
-                            <li>Sunrise time: </li>
+                    <div id="sun" tabindex="10">
+                        <h3 tabindex="10">Sun</h3>
+                        <ul id="sun-list" tabindex="10">
+                            <li tabindex="10">Sunset time: </li>
+                            <li tabindex="10">Sunrise time: </li>
                         </ul>
                     </div>
 
                 </div>
 
-            </div>
-        </div>
+            </section>
+        </article>
 
-        <div id="uv-slider">
+        <div id="uv-slider" tabindex="11" aria-label="Section where the UV index information is graphed upon basic UV index diagram in a simple range-based style">
             <div class="pointer upper"></div>
             <div style="margin-top: 30px;" class="pointer"></div>
         </div>
 
-        <div id="chances">
-            <h2>Chances of rain or snowing</h2>
+        <div id="chances" tabindex="12" aria-label="Section for the daily chances of rain and snow">
+            <h2 tabindex="12">Chances of rain or snowing</h2>
 
-            <div id="chances-section">
-                <ul id="chances-list">
-                    <li>Will it rain:</li>
-                    <li>Will it snow:</li>
+            <div id="chances-section" tabindex="12">
+                <ul id="chances-list" tabindex="12">
+                    <li tabindex="12">Will it rain:</li>
+                    <li tabindex="12">Will it snow:</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </main>
     <!-- TODO: Upgrade homepage and then add sound adjusting settings to the weather page!-->
     <script type="module" src="weatherScript.js"></script>
 </body>
